@@ -1,4 +1,5 @@
-﻿using FlowerClient.model;
+﻿using FlowerClient.Additions;
+using FlowerClient.model;
 using FlowerClient.view;
 using Newtonsoft.Json;
 using System;
@@ -24,7 +25,7 @@ namespace FlowerClient.presenter
 
         public string ResultAsync { get => result; set => value = result; }
 
-        public async Task Register(string email, string pass)
+        public async Task Register(string email, string pass) // регистрация в системе
         {
             // Создание HTTP клиента для отправки запросов на сервер
             using HttpClient httpClient = new HttpClient();

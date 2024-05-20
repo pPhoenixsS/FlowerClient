@@ -24,7 +24,6 @@ namespace FlowerClient.view
         {
             InitializeComponent();
             presenter = new LoginPresenter(this);
-            this.WindowState = FormWindowState.Maximized;
         }
 
         private async void ButtonLogin_Click(object sender, EventArgs e)
@@ -34,8 +33,10 @@ namespace FlowerClient.view
             if (presenter.ResultAsync == "ok")
             {
                 MessageBox.Show("Вход успешно выполнен");
-                HomePageView homepage = new HomePageView();
-                homepage.Show();
+                HomePageView homepage = new HomePageView(); // создаем новую форму
+                homepage.Show(); // показываем форму
+                this.Hide(); // скрываем текущую форму
+                homepage.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
             }
             else
             {
@@ -49,6 +50,8 @@ namespace FlowerClient.view
         {
             RegisterView register = new RegisterView();
             register.Show();
+            this.Hide(); // скрываем текущую форму
+            register.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
         }
     }
 }

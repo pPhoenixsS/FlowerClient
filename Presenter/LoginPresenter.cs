@@ -26,7 +26,7 @@ namespace FlowerClient.presenter
 
         public string ResultAsync { get => result; set => value = result; }
 
-        public async Task Login(string email, string pass)
+        public async Task Login(string email, string pass) // вход в систему
         {
             using HttpClient httpClient = new HttpClient();
 
@@ -73,21 +73,15 @@ namespace FlowerClient.presenter
                     Header.headers.RefreshToken = _headers.RefreshToken;
                     Header.headers.AccessToken = _headers.AccessToken;
 
+                    // Сохраняем заголовки
+                    SaveHeaders.SaveHeaderFieldsToFile(Header.headers, "C:/Users/arish/Documents/GitHub/FlowerClient/Data/HeadersForSafety.txt");
+
                     result = "ok";
                     break;
                 default:
                     result = "Произошли неполадки";
                     break;
             }
-
-            // Относительный путь к файлу HeadersForSafety.txt
-            string relativePath = "Data/HeadersForSafety.txt";
-
-            // Формирование полного пути к файлу
-            string fullPath = Path.Combine(Directory.GetCurrentDirectory(), relativePath);
-
-            // Использование полного пути в методе сохранения заголовков
-            SaveHeaders.SaveHeaderFieldsToFile(Header.headers, fullPath);
         }
     }
 }

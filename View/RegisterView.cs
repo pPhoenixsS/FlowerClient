@@ -1,6 +1,7 @@
 ﻿using FlowerClient.model;
 using FlowerClient.presenter;
 using FlowerClient.view;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,7 +23,6 @@ namespace FlowerClient
         {
             InitializeComponent();
             presenter = new RegisterPresenter(this);
-            this.WindowState = FormWindowState.Maximized;
         }
 
         private async void ButtonRegister_Click(object sender, EventArgs e)
@@ -36,7 +36,9 @@ namespace FlowerClient
                 {
                     MessageBox.Show("Аккаунт успешно зарегистрирован");
                     LoginView auth = new LoginView();
-                    auth.Show();
+                    auth.Show(); // показываем форму
+                    this.Hide(); // скрываем текущую форму
+                    auth.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
                 }
                 else
                 {
