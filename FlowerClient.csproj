@@ -54,6 +54,12 @@
     <Compile Include="Model\Header.cs" />
     <Compile Include="Presenter\ILoginPresenter.cs" />
     <Compile Include="Presenter\LoginPresenter.cs" />
+    <Compile Include="View\HomePageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\HomePageView.Designer.cs">
+      <DependentUpon>HomePageView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\IRegisterView.cs" />
     <Compile Include="View\ILoginView.cs" />
     <Compile Include="View\RegisterView.cs">
@@ -83,6 +89,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\RegisterView.resx">
       <DependentUpon>RegisterView.cs</DependentUpon>
     </EmbeddedResource>

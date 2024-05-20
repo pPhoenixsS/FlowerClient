@@ -22,15 +22,16 @@ namespace FlowerClient
         {
             InitializeComponent();
             presenter = new RegisterPresenter(this);
+            this.WindowState = FormWindowState.Maximized;
         }
 
-        private async void buttonRegister_Click(object sender, EventArgs e)
+        private async void ButtonRegister_Click(object sender, EventArgs e)
         {
             if (CheckingInput.IsValidEmail(textBoxEmail.Text) && CheckingInput.IsStrongPassword(textBoxPassword.Text))
             {
                 await presenter.Register(textBoxEmail.Text, textBoxPassword.Text);
                 var _headers = Header.headers;
-                
+
                 if (presenter.ResultAsync == "ok")
                 {
                     MessageBox.Show("Аккаунт успешно зарегистрирован");
