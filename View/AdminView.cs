@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FlowerClient.View
 {
-    public partial class HomePageView : Form, IHomePageView
+    public partial class AdminView : Form, IAdminView
     {
-        public HomePageView()
+        public AdminView()
         {
             InitializeComponent();
         }

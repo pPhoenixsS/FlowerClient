@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlowerClient
 {
-    internal class CheckingInput
+    internal class CheckingInput // проверка пароля и емэйла
     {
         public static bool IsStringInputValid(string input)
         {

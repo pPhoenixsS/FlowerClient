@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.Additions
 {
-    internal class SaveHeaders
+    internal class SaveHeaders // сохранение заголовков в файл
     {
         public static void SaveHeaderFieldsToFile(Header header, string filePath)
         {

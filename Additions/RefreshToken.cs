@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.Additions
 {
-    internal static class RefreshToken
+    internal static class RefreshToken // обновление токена
     {
         private static string result;
 

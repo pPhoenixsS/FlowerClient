@@ -5,7 +5,7 @@ using System.Linq;
 
 internal static class TokenLifetime
 {
-    public static DateTime? Lifetime()
+    public static DateTime? Lifetime() // находим время истечения жизни токена
     {
         string token = Header.headers.AccessToken; // access token
 

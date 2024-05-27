@@ -100,14 +100,27 @@
     <Compile Include="Additions\RefreshToken.cs" />
     <Compile Include="Additions\SaveHeaders.cs" />
     <Compile Include="Model\Header.cs" />
-    <Compile Include="Presenter\ILoginPresenter.cs" />
-    <Compile Include="Presenter\LoginPresenter.cs" />
+    <Compile Include="Model\Product.cs" />
+    <Compile Include="PresenterLogin&amp;Registr\ILoginPresenter.cs" />
+    <Compile Include="PresenterLogin&amp;Registr\LoginPresenter.cs" />
+    <Compile Include="PresenterProducts\Admin_Add&amp;DelProd_Presenter.cs" />
+    <Compile Include="PresenterProducts\IAdmin_Add&amp;DelProd_Presenter.cs" />
+    <Compile Include="PresenterProducts\IMainProductsPresenter.cs" />
+    <Compile Include="PresenterProducts\MainProductsPresenter.cs" />
+    <Compile Include="View\AdminView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\AdminView.Designer.cs">
+      <DependentUpon>AdminView.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\HomePageView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="View\HomePageView.Designer.cs">
       <DependentUpon>HomePageView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IAdminView.cs" />
+    <Compile Include="View\IHomePageView.cs" />
     <Compile Include="View\IRegisterView.cs" />
     <Compile Include="View\ILoginView.cs" />
     <Compile Include="View\RegisterView.cs">
@@ -118,8 +131,8 @@
     </Compile>
     <Compile Include="Model\RegisterModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
-    <Compile Include="Presenter\IRegisterPresenter.cs" />
-    <Compile Include="Presenter\RegisterPresenter.cs" />
+    <Compile Include="PresenterLogin&amp;Registr\IRegisterPresenter.cs" />
+    <Compile Include="PresenterLogin&amp;Registr\RegisterPresenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="View\LoginView.cs">
@@ -160,5 +173,6 @@
   <ItemGroup>
     <Content Include="Data\HeadersForSafety.txt" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
