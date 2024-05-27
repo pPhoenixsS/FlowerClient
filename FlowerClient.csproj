@@ -103,8 +103,8 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="PresenterLogin&amp;Registr\ILoginPresenter.cs" />
     <Compile Include="PresenterLogin&amp;Registr\LoginPresenter.cs" />
-    <Compile Include="PresenterProducts\Admin_Add&amp;DelProd_Presenter.cs" />
-    <Compile Include="PresenterProducts\IAdmin_Add&amp;DelProd_Presenter.cs" />
+    <Compile Include="PresenterProducts\Admin_AddDelProd_Presenter.cs" />
+    <Compile Include="PresenterProducts\IAdmin_AddDelProd_Presenter.cs" />
     <Compile Include="PresenterProducts\IMainProductsPresenter.cs" />
     <Compile Include="PresenterProducts\MainProductsPresenter.cs" />
     <Compile Include="View\AdminView.cs">
@@ -150,6 +150,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="View\AdminView.resx">
+      <DependentUpon>AdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\HomePageView.resx">
+      <DependentUpon>HomePageView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
     </EmbeddedResource>
