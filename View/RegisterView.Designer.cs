@@ -43,6 +43,7 @@
             this.textBoxEmail.Name = "textBoxEmail";
             this.textBoxEmail.Size = new System.Drawing.Size(347, 43);
             this.textBoxEmail.TabIndex = 0;
+            this.textBoxEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // textBoxPassword
             // 
@@ -51,6 +52,7 @@
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(347, 43);
             this.textBoxPassword.TabIndex = 1;
+            this.textBoxPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox_KeyDown);
             // 
             // ButtonRegister
             // 
@@ -90,7 +92,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe Print", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(278, 9);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(258, 61);
+            this.label3.Size = new System.Drawing.Size(247, 58);
             this.label3.TabIndex = 5;
             this.label3.Text = "Регистрация";
             // 

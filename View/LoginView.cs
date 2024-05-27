@@ -24,6 +24,20 @@ namespace FlowerClient.view
         {
             InitializeComponent();
             presenter = new LoginPresenter(this);
+
+            // Устанавливаем свойство UseSystemPasswordChar в true (для скрытия пароля)
+            textBoxPassword.UseSystemPasswordChar = true;
+
+            // Добавляем обработчик для всех текстбоксов на форме (нужно для запрета копирования пароля)
+            foreach (Control control in this.Controls)
+            {
+                if (control is TextBox)
+                {
+                    TextBox textBox = (TextBox)control;
+                    textBox.KeyDown += new KeyEventHandler(TextBox_KeyDown);
+                    textBox.ContextMenu = new ContextMenu(); // Убираем контекстное меню
+                }
+            }
         }
 
         private async void ButtonLogin_Click(object sender, EventArgs e)
@@ -52,6 +66,15 @@ namespace FlowerClient.view
             register.Show();
             this.Hide(); // скрываем текущую форму
             register.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
+        }
+
+        private void TextBox_KeyDown(object sender, KeyEventArgs e) // Обработчик события нажатия клавиш копирования (чтобы нельзя было скопировать пароль и вставить)
+        {
+            // Запрещаем Ctrl+C, Ctrl+X, Ctrl+V
+            if (e.Control && (e.KeyCode == Keys.C || e.KeyCode == Keys.X || e.KeyCode == Keys.V))
+            {
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }
