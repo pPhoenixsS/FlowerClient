@@ -58,6 +58,10 @@ namespace FlowerClient.View
         public async void LoadProducts()
         {
             List<Product> products = await presenter.AllProducts();
+
+            if (products == null)
+                return;
+
             DisplayProducts(products);
         }
 
