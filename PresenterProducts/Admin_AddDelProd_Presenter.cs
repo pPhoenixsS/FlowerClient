@@ -27,7 +27,7 @@ namespace FlowerClient.PresenterProducts
 
         public string ResultAsync { get => result; set => value = result; }
 
-        public async Task AddProduct(string Name, string Kind, string Description, double Price, int Count, Array Images) // добавление продукта
+        public async Task AddProduct(string Name, string Kind, string Description, double Price, int Count, List<string> Images) // добавление продукта
         {
             // Проверить и обновить токен при необходимости
             await RefreshToken.CheckAndRefreshTokenIfNeeded();

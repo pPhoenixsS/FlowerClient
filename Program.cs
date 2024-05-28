@@ -19,7 +19,7 @@ namespace FlowerClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AdminView());
+            Application.Run(new LoginView());
         }
     }
 }

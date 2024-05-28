@@ -121,7 +121,6 @@
             this.Controls.Add(this.textBoxEmail);
             this.Name = "LoginView";
             this.Text = "Вход";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

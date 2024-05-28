@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace FlowerClient.View
 {
-    public partial class HomePageView : Form, IHomePageView
+    public partial class CartView : Form
     {
-        public HomePageView()
+        public CartView()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.AutoScaleMode = AutoScaleMode.Dpi;
         }
     }
 }

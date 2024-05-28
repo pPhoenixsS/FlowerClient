@@ -99,7 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Additions\CheckingInput.cs" />
-    <Compile Include="Additions\TokenLifetime.cs" />
+    <Compile Include="Additions\TokenParameters.cs" />
     <Compile Include="Additions\RefreshToken.cs" />
     <Compile Include="Additions\SaveHeaders.cs" />
     <Compile Include="Model\Header.cs" />
@@ -116,16 +116,28 @@
     <Compile Include="View\AdminView.Designer.cs">
       <DependentUpon>AdminView.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\HomePageView.cs">
+    <Compile Include="View\CartView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\HomePageView.Designer.cs">
-      <DependentUpon>HomePageView.cs</DependentUpon>
+    <Compile Include="View\CartView.Designer.cs">
+      <DependentUpon>CartView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="View\MainProductsView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\MainProductsView.Designer.cs">
+      <DependentUpon>MainProductsView.cs</DependentUpon>
     </Compile>
     <Compile Include="View\IAdminView.cs" />
-    <Compile Include="View\IHomePageView.cs" />
+    <Compile Include="View\IMainProductsView.cs" />
     <Compile Include="View\IRegisterView.cs" />
     <Compile Include="View\ILoginView.cs" />
+    <Compile Include="View\ProductTooltipForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="View\ProductTooltipForm.Designer.cs">
+      <DependentUpon>ProductTooltipForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="View\RegisterView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,8 +168,8 @@
     <EmbeddedResource Include="View\AdminView.resx">
       <DependentUpon>AdminView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\HomePageView.resx">
-      <DependentUpon>HomePageView.cs</DependentUpon>
+    <EmbeddedResource Include="View\MainProductsView.resx">
+      <DependentUpon>MainProductsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>

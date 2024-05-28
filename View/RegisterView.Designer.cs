@@ -109,7 +109,6 @@
             this.Controls.Add(this.textBoxEmail);
             this.Name = "RegisterView";
             this.Text = "Регистрация";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.model
 {
-    internal class Header
+    public class Header
     {
         public string FingerPrint { get; set; }
         public string RefreshToken { get; set; }

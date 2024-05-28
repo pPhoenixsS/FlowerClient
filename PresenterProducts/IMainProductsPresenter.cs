@@ -12,5 +12,6 @@ namespace FlowerClient.PresenterProducts
         public Task<List<Product>> AllProducts();
         public Task OneProduct(int id);
         public string ResultAsync { get; set; }
+        public string GetRole();
     }
 }

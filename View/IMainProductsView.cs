@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.View
 {
-    internal interface IHomePageView
+    internal interface IMainProductsView
     {
     }
 }

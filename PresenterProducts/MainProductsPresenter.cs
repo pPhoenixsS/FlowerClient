@@ -13,10 +13,10 @@ namespace FlowerClient.PresenterProducts
 {
     internal class MainProductsPresenter : IMainProductsPresenter
     {
-        IHomePageView view;
+        IMainProductsView view;
         string result;
 
-        public MainProductsPresenter(IHomePageView view)
+        public MainProductsPresenter(IMainProductsView view)
         {
             this.view = view;
         }
@@ -77,6 +77,11 @@ namespace FlowerClient.PresenterProducts
                     result = "ошибка";
                     break;
             }
+        }
+
+        public string GetRole()
+        {
+            return TokenParameters.GetRoleFromToken();
         }
     }
 }

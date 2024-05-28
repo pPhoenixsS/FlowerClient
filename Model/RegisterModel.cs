@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.model
 {
-    internal class RegisterModel
+    public class RegisterModel
     {
         public string Email { get; set; }
         public string Password { get; set; }

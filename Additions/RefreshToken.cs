@@ -56,7 +56,7 @@ namespace FlowerClient.Additions
 
         public static async Task CheckAndRefreshTokenIfNeeded() // проверяем нужно ли обновление токена
         {
-            DateTime? tokenExpiryTime = TokenLifetime.Lifetime();
+            DateTime? tokenExpiryTime = TokenParameters.Lifetime();
             if (tokenExpiryTime == null || TokenIsExpired(tokenExpiryTime.Value))
             {
                 await Refresh();

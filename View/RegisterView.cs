@@ -24,6 +24,7 @@ namespace FlowerClient
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             presenter = new RegisterPresenter(this);
 

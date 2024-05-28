@@ -24,6 +24,7 @@ namespace FlowerClient.view
         {
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.StartPosition = FormStartPosition.CenterScreen;
 
             presenter = new LoginPresenter(this);
 
@@ -49,7 +50,7 @@ namespace FlowerClient.view
             if (presenter.ResultAsync == "ok")
             {
                 MessageBox.Show("Вход успешно выполнен");
-                HomePageView homepage = new HomePageView(); // создаем новую форму
+                MainProductsView homepage = new MainProductsView(); // создаем новую форму
                 homepage.Show(); // показываем форму
                 this.Hide(); // скрываем текущую форму
                 homepage.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму

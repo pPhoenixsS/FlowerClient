@@ -9,7 +9,7 @@ namespace FlowerClient.PresenterProducts
 {
     internal interface IAdmin_Add_DelProd_Presenter
     {
-        public Task AddProduct(string Name, string Kind, string Description, double Price, int Count, Array Images);
+        public Task AddProduct(string Name, string Kind, string Description, double Price, int Count, List<string> Images);
         public Task DeleteProduct(int id);
         public Task<List<Product>> AllProducts();
         public Task OneProduct(int id);

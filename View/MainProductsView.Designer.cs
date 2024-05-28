@@ -1,6 +1,6 @@
 ﻿namespace FlowerClient.View
 {
-    partial class HomePageView
+    partial class MainProductsView
     {
         /// <summary>
         /// Required designer variable.
@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.FindProduct = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.ExitProfile = new System.Windows.Forms.Button();
+            this.Admin = new System.Windows.Forms.Button();
+            this.Cart = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.flowLayoutPanelProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.SuspendLayout();
             // 
             // label8
@@ -48,20 +48,13 @@
             this.label8.TabIndex = 20;
             this.label8.Text = "Все товары";
             // 
-            // panel1
+            // FindProduct
             // 
-            this.panel1.Location = new System.Drawing.Point(12, 138);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1458, 603);
-            this.panel1.TabIndex = 19;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox5.Location = new System.Drawing.Point(975, 93);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(181, 38);
-            this.textBox5.TabIndex = 22;
+            this.FindProduct.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.FindProduct.Location = new System.Drawing.Point(975, 93);
+            this.FindProduct.Name = "FindProduct";
+            this.FindProduct.Size = new System.Drawing.Size(181, 38);
+            this.FindProduct.TabIndex = 22;
             // 
             // label9
             // 
@@ -73,35 +66,38 @@
             this.label9.TabIndex = 21;
             this.label9.Text = "Поиск по индентификатору";
             // 
-            // button5
+            // ExitProfile
             // 
-            this.button5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button5.Location = new System.Drawing.Point(1230, 12);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(240, 39);
-            this.button5.TabIndex = 23;
-            this.button5.Text = "Выйти из профиля";
-            this.button5.UseVisualStyleBackColor = true;
+            this.ExitProfile.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.ExitProfile.Location = new System.Drawing.Point(1230, 12);
+            this.ExitProfile.Name = "ExitProfile";
+            this.ExitProfile.Size = new System.Drawing.Size(240, 39);
+            this.ExitProfile.TabIndex = 23;
+            this.ExitProfile.Text = "Выйти из профиля";
+            this.ExitProfile.UseVisualStyleBackColor = true;
+            this.ExitProfile.Click += new System.EventHandler(this.ExitProfile_Click);
             // 
-            // button1
+            // Admin
             // 
-            this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button1.Location = new System.Drawing.Point(970, 12);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(117, 39);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "Админ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Admin.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Admin.Location = new System.Drawing.Point(970, 12);
+            this.Admin.Name = "Admin";
+            this.Admin.Size = new System.Drawing.Size(117, 39);
+            this.Admin.TabIndex = 24;
+            this.Admin.Text = "Админ";
+            this.Admin.UseVisualStyleBackColor = true;
+            this.Admin.Click += new System.EventHandler(this.Admin_Click);
             // 
-            // button2
+            // Cart
             // 
-            this.button2.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button2.Location = new System.Drawing.Point(1093, 12);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(131, 39);
-            this.button2.TabIndex = 25;
-            this.button2.Text = "Корзина";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Cart.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Cart.Location = new System.Drawing.Point(1093, 12);
+            this.Cart.Name = "Cart";
+            this.Cart.Size = new System.Drawing.Size(131, 39);
+            this.Cart.TabIndex = 25;
+            this.Cart.Text = "Корзина";
+            this.Cart.UseVisualStyleBackColor = true;
+            this.Cart.Click += new System.EventHandler(this.Cart_Click);
             // 
             // label1
             // 
@@ -113,21 +109,29 @@
             this.label1.TabIndex = 26;
             this.label1.Text = "Тут типа будет логотип и название магазина";
             // 
-            // HomePageView
+            // flowLayoutPanelProduct
+            // 
+            this.flowLayoutPanelProduct.AutoScroll = true;
+            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(12, 137);
+            this.flowLayoutPanelProduct.Name = "flowLayoutPanelProduct";
+            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(1458, 604);
+            this.flowLayoutPanelProduct.TabIndex = 27;
+            // 
+            // MainProductsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1482, 753);
+            this.Controls.Add(this.flowLayoutPanelProduct);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.Cart);
+            this.Controls.Add(this.Admin);
+            this.Controls.Add(this.ExitProfile);
+            this.Controls.Add(this.FindProduct);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.panel1);
-            this.Name = "HomePageView";
-            this.Text = "HomePageView";
+            this.Name = "MainProductsView";
+            this.Text = "Главная";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -136,12 +140,12 @@
         #endregion
 
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox FindProduct;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button ExitProfile;
+        private System.Windows.Forms.Button Admin;
+        private System.Windows.Forms.Button Cart;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProduct;
     }
 }
