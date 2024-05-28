@@ -16,6 +16,11 @@ namespace FlowerClient.View
 {
     public partial class AdminView : Form, IAdminView
     {
-        
+        public AdminView()
+        {
+            InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+        }
     }
 }

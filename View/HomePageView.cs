@@ -15,6 +15,8 @@ namespace FlowerClient.View
         public HomePageView()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
+            this.AutoScaleMode = AutoScaleMode.Dpi;
         }
     }
 }

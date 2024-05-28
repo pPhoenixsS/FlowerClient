@@ -1,4 +1,5 @@
 ﻿using FlowerClient.view;
+using FlowerClient.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +19,8 @@ namespace FlowerClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new LoginView());
+            Application.SetHighDpiMode(HighDpiMode.PerMonitorV2); // Устранение блюра при открытии формы
+            Application.Run(new AdminView());
         }
     }
 }

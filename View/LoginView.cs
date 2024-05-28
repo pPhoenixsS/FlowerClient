@@ -23,6 +23,8 @@ namespace FlowerClient.view
         public LoginView()
         {
             InitializeComponent();
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+
             presenter = new LoginPresenter(this);
 
             // Устанавливаем свойство UseSystemPasswordChar в true (для скрытия пароля)

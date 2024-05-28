@@ -76,16 +76,16 @@
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 88);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 73);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(372, 300);
+            this.pictureBox1.Size = new System.Drawing.Size(400, 250);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button1.Location = new System.Drawing.Point(12, 439);
+            this.button1.Location = new System.Drawing.Point(12, 372);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(372, 39);
             this.button1.TabIndex = 3;
@@ -95,7 +95,7 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button2.Location = new System.Drawing.Point(12, 394);
+            this.button2.Location = new System.Drawing.Point(12, 327);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(98, 39);
             this.button2.TabIndex = 4;
@@ -105,7 +105,7 @@
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button3.Location = new System.Drawing.Point(286, 394);
+            this.button3.Location = new System.Drawing.Point(286, 327);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(98, 39);
             this.button3.TabIndex = 5;
@@ -115,7 +115,7 @@
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button4.Location = new System.Drawing.Point(12, 484);
+            this.button4.Location = new System.Drawing.Point(12, 417);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(372, 39);
             this.button4.TabIndex = 6;
@@ -125,7 +125,7 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox1.Location = new System.Drawing.Point(203, 549);
+            this.textBox1.Location = new System.Drawing.Point(203, 472);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(181, 38);
             this.textBox1.TabIndex = 7;
@@ -134,7 +134,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(50, 549);
+            this.label3.Location = new System.Drawing.Point(50, 472);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(114, 34);
             this.label3.TabIndex = 8;
@@ -144,7 +144,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(72, 596);
+            this.label4.Location = new System.Drawing.Point(72, 519);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(70, 34);
             this.label4.TabIndex = 10;
@@ -153,7 +153,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox2.Location = new System.Drawing.Point(203, 593);
+            this.textBox2.Location = new System.Drawing.Point(203, 516);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(181, 38);
             this.textBox2.TabIndex = 9;
@@ -162,7 +162,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(133, 737);
+            this.label5.Location = new System.Drawing.Point(133, 654);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 34);
             this.label5.TabIndex = 11;
@@ -171,7 +171,7 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.richTextBox1.Location = new System.Drawing.Point(12, 784);
+            this.richTextBox1.Location = new System.Drawing.Point(12, 691);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(372, 93);
             this.richTextBox1.TabIndex = 12;
@@ -181,7 +181,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(50, 641);
+            this.label6.Location = new System.Drawing.Point(50, 564);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(115, 34);
             this.label6.TabIndex = 14;
@@ -190,7 +190,7 @@
             // textBox3
             // 
             this.textBox3.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox3.Location = new System.Drawing.Point(204, 637);
+            this.textBox3.Location = new System.Drawing.Point(204, 560);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(181, 38);
             this.textBox3.TabIndex = 13;
@@ -199,7 +199,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(11, 685);
+            this.label7.Location = new System.Drawing.Point(11, 608);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(186, 34);
             this.label7.TabIndex = 16;
@@ -208,23 +208,23 @@
             // textBox4
             // 
             this.textBox4.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox4.Location = new System.Drawing.Point(203, 681);
+            this.textBox4.Location = new System.Drawing.Point(203, 604);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(181, 38);
             this.textBox4.TabIndex = 15;
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(435, 132);
+            this.panel1.Location = new System.Drawing.Point(435, 139);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1397, 698);
+            this.panel1.Size = new System.Drawing.Size(1035, 675);
             this.panel1.TabIndex = 17;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(427, 88);
+            this.label8.Location = new System.Drawing.Point(427, 95);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 37);
             this.label8.TabIndex = 18;
@@ -234,7 +234,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(990, 88);
+            this.label9.Location = new System.Drawing.Point(922, 94);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(361, 37);
             this.label9.TabIndex = 19;
@@ -243,7 +243,7 @@
             // textBox5
             // 
             this.textBox5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox5.Location = new System.Drawing.Point(1357, 89);
+            this.textBox5.Location = new System.Drawing.Point(1289, 95);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(181, 38);
             this.textBox5.TabIndex = 20;
@@ -251,7 +251,7 @@
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button5.Location = new System.Drawing.Point(1656, 838);
+            this.button5.Location = new System.Drawing.Point(1294, 9);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(176, 39);
             this.button5.TabIndex = 21;
@@ -260,9 +260,9 @@
             // 
             // AdminView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1844, 889);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1486, 829);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label9);
