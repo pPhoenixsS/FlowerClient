@@ -19,7 +19,6 @@ namespace FlowerClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.SetHighDpiMode(HighDpiMode.PerMonitorV2); // Устранение блюра при открытии формы
             Application.Run(new AdminView());
         }
     }
