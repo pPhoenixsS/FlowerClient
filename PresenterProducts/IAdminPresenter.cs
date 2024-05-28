@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.PresenterProducts
 {
-    internal interface IAdmin_Add_DelProd_Presenter
+    internal interface IAdminPresenter
     {
         public Task AddProduct(string Name, string Kind, string Description, double Price, int Count, List<string> Images);
         public Task DeleteProduct(int id);

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.label8 = new System.Windows.Forms.Label();
-            this.FindProduct = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.ExitProfile = new System.Windows.Forms.Button();
             this.Admin = new System.Windows.Forms.Button();
             this.Cart = new System.Windows.Forms.Button();
@@ -47,24 +45,6 @@
             this.label8.Size = new System.Drawing.Size(158, 37);
             this.label8.TabIndex = 20;
             this.label8.Text = "Все товары";
-            // 
-            // FindProduct
-            // 
-            this.FindProduct.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.FindProduct.Location = new System.Drawing.Point(975, 93);
-            this.FindProduct.Name = "FindProduct";
-            this.FindProduct.Size = new System.Drawing.Size(181, 38);
-            this.FindProduct.TabIndex = 22;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(608, 92);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(361, 37);
-            this.label9.TabIndex = 21;
-            this.label9.Text = "Поиск по индентификатору";
             // 
             // ExitProfile
             // 
@@ -127,8 +107,6 @@
             this.Controls.Add(this.Cart);
             this.Controls.Add(this.Admin);
             this.Controls.Add(this.ExitProfile);
-            this.Controls.Add(this.FindProduct);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Name = "MainProductsView";
             this.Text = "Главная";
@@ -140,8 +118,6 @@
         #endregion
 
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox FindProduct;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button ExitProfile;
         private System.Windows.Forms.Button Admin;
         private System.Windows.Forms.Button Cart;

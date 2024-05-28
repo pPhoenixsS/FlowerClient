@@ -29,28 +29,26 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pictureBox = new System.Windows.Forms.PictureBox();
+            this.AddPicture = new System.Windows.Forms.Button();
+            this.Back = new System.Windows.Forms.Button();
+            this.Forward = new System.Windows.Forms.Button();
+            this.DeletePicture = new System.Windows.Forms.Button();
+            this.NameProduct = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Kind = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.Description = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Price = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.Count = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.button5 = new System.Windows.Forms.Button();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.GoMain = new System.Windows.Forms.Button();
+            this.flowLayoutPanelProduct = new System.Windows.Forms.FlowLayoutPanel();
+            this.AddProduct = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -59,76 +57,70 @@
             this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(299, 49);
+            this.label1.Size = new System.Drawing.Size(288, 49);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Администратор:";
+            this.label1.Text = "Администратор";
             // 
-            // label2
+            // pictureBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Monotype Corsiva", 24F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.label2.Location = new System.Drawing.Point(306, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(114, 49);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox.Location = new System.Drawing.Point(12, 73);
+            this.pictureBox.Name = "pictureBox";
+            this.pictureBox.Size = new System.Drawing.Size(400, 250);
+            this.pictureBox.TabIndex = 2;
+            this.pictureBox.TabStop = false;
             // 
-            // pictureBox1
+            // AddPicture
             // 
-            this.pictureBox1.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 73);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(400, 250);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.AddPicture.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.AddPicture.Location = new System.Drawing.Point(12, 372);
+            this.AddPicture.Name = "AddPicture";
+            this.AddPicture.Size = new System.Drawing.Size(400, 39);
+            this.AddPicture.TabIndex = 3;
+            this.AddPicture.Text = "Добавить фотографию";
+            this.AddPicture.UseVisualStyleBackColor = true;
+            this.AddPicture.Click += new System.EventHandler(this.AddPicture_Click);
             // 
-            // button1
+            // Back
             // 
-            this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button1.Location = new System.Drawing.Point(12, 372);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(372, 39);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Добавить фотографию";
-            this.button1.UseVisualStyleBackColor = true;
+            this.Back.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Back.Location = new System.Drawing.Point(12, 327);
+            this.Back.Name = "Back";
+            this.Back.Size = new System.Drawing.Size(98, 39);
+            this.Back.TabIndex = 4;
+            this.Back.Text = "Назад";
+            this.Back.UseVisualStyleBackColor = true;
+            this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
-            // button2
+            // Forward
             // 
-            this.button2.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button2.Location = new System.Drawing.Point(12, 327);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(98, 39);
-            this.button2.TabIndex = 4;
-            this.button2.Text = "Назад";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Forward.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Forward.Location = new System.Drawing.Point(314, 327);
+            this.Forward.Name = "Forward";
+            this.Forward.Size = new System.Drawing.Size(98, 39);
+            this.Forward.TabIndex = 5;
+            this.Forward.Text = "Вперед";
+            this.Forward.UseVisualStyleBackColor = true;
+            this.Forward.Click += new System.EventHandler(this.Next_Click);
             // 
-            // button3
+            // DeletePicture
             // 
-            this.button3.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button3.Location = new System.Drawing.Point(286, 327);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(98, 39);
-            this.button3.TabIndex = 5;
-            this.button3.Text = "Вперед";
-            this.button3.UseVisualStyleBackColor = true;
+            this.DeletePicture.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.DeletePicture.Location = new System.Drawing.Point(12, 417);
+            this.DeletePicture.Name = "DeletePicture";
+            this.DeletePicture.Size = new System.Drawing.Size(400, 39);
+            this.DeletePicture.TabIndex = 6;
+            this.DeletePicture.Text = "Удалить фотографию";
+            this.DeletePicture.UseVisualStyleBackColor = true;
+            this.DeletePicture.Click += new System.EventHandler(this.DeletePicture_Click);
             // 
-            // button4
+            // NameProduct
             // 
-            this.button4.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button4.Location = new System.Drawing.Point(12, 417);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(372, 39);
-            this.button4.TabIndex = 6;
-            this.button4.Text = "Удалить фотографию";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox1.Location = new System.Drawing.Point(203, 472);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 38);
-            this.textBox1.TabIndex = 7;
+            this.NameProduct.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.NameProduct.Location = new System.Drawing.Point(203, 472);
+            this.NameProduct.Name = "NameProduct";
+            this.NameProduct.Size = new System.Drawing.Size(209, 38);
+            this.NameProduct.TabIndex = 7;
             // 
             // label3
             // 
@@ -150,32 +142,32 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Сорт";
             // 
-            // textBox2
+            // Kind
             // 
-            this.textBox2.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox2.Location = new System.Drawing.Point(203, 516);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(181, 38);
-            this.textBox2.TabIndex = 9;
+            this.Kind.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Kind.Location = new System.Drawing.Point(203, 516);
+            this.Kind.Name = "Kind";
+            this.Kind.Size = new System.Drawing.Size(209, 38);
+            this.Kind.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(133, 654);
+            this.label5.Location = new System.Drawing.Point(147, 654);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 34);
             this.label5.TabIndex = 11;
             this.label5.Text = "Описание";
             // 
-            // richTextBox1
+            // Description
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.richTextBox1.Location = new System.Drawing.Point(12, 691);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(372, 93);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
+            this.Description.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Description.Location = new System.Drawing.Point(12, 691);
+            this.Description.Name = "Description";
+            this.Description.Size = new System.Drawing.Size(400, 81);
+            this.Description.TabIndex = 12;
+            this.Description.Text = "";
             // 
             // label6
             // 
@@ -187,13 +179,13 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Цена, руб";
             // 
-            // textBox3
+            // Price
             // 
-            this.textBox3.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox3.Location = new System.Drawing.Point(204, 560);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(181, 38);
-            this.textBox3.TabIndex = 13;
+            this.Price.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Price.Location = new System.Drawing.Point(204, 560);
+            this.Price.Name = "Price";
+            this.Price.Size = new System.Drawing.Size(209, 38);
+            this.Price.TabIndex = 13;
             // 
             // label7
             // 
@@ -205,90 +197,82 @@
             this.label7.TabIndex = 16;
             this.label7.Text = "Количество, шт";
             // 
-            // textBox4
+            // Count
             // 
-            this.textBox4.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox4.Location = new System.Drawing.Point(203, 604);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(181, 38);
-            this.textBox4.TabIndex = 15;
+            this.Count.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.Count.Location = new System.Drawing.Point(203, 604);
+            this.Count.Name = "Count";
+            this.Count.Size = new System.Drawing.Size(209, 38);
+            this.Count.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(427, 95);
+            this.label8.Location = new System.Drawing.Point(427, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 37);
             this.label8.TabIndex = 18;
             this.label8.Text = "Все товары";
             // 
-            // label9
+            // GoMain
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label9.Location = new System.Drawing.Point(922, 94);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(361, 37);
-            this.label9.TabIndex = 19;
-            this.label9.Text = "Поиск по индентификатору";
+            this.GoMain.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.GoMain.Location = new System.Drawing.Point(1294, 9);
+            this.GoMain.Name = "GoMain";
+            this.GoMain.Size = new System.Drawing.Size(176, 39);
+            this.GoMain.TabIndex = 21;
+            this.GoMain.Text = "На главную";
+            this.GoMain.UseVisualStyleBackColor = true;
+            this.GoMain.Click += new System.EventHandler(this.GoMain_Click);
             // 
-            // textBox5
+            // flowLayoutPanelProduct
             // 
-            this.textBox5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.textBox5.Location = new System.Drawing.Point(1289, 95);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(181, 38);
-            this.textBox5.TabIndex = 20;
+            this.flowLayoutPanelProduct.AutoScroll = true;
+            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(434, 102);
+            this.flowLayoutPanelProduct.Name = "flowLayoutPanelProduct";
+            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(1036, 715);
+            this.flowLayoutPanelProduct.TabIndex = 22;
             // 
-            // button5
+            // AddProduct
             // 
-            this.button5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.button5.Location = new System.Drawing.Point(1294, 9);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(176, 39);
-            this.button5.TabIndex = 21;
-            this.button5.Text = "На главную";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(434, 139);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1036, 678);
-            this.flowLayoutPanel1.TabIndex = 22;
+            this.AddProduct.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
+            this.AddProduct.Location = new System.Drawing.Point(12, 778);
+            this.AddProduct.Name = "AddProduct";
+            this.AddProduct.Size = new System.Drawing.Size(400, 39);
+            this.AddProduct.TabIndex = 23;
+            this.AddProduct.Text = "Добавить товар";
+            this.AddProduct.UseVisualStyleBackColor = true;
+            this.AddProduct.Click += new System.EventHandler(this.AddProduct_Click);
             // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(1486, 829);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.label9);
+            this.Controls.Add(this.AddProduct);
+            this.Controls.Add(this.flowLayoutPanelProduct);
+            this.Controls.Add(this.GoMain);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.Count);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.Price);
+            this.Controls.Add(this.Description);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.Kind);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.NameProduct);
+            this.Controls.Add(this.DeletePicture);
+            this.Controls.Add(this.Forward);
+            this.Controls.Add(this.Back);
+            this.Controls.Add(this.AddPicture);
+            this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label1);
             this.Name = "AdminView";
             this.Text = "AdminView";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -297,26 +281,24 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.PictureBox pictureBox;
+        private System.Windows.Forms.Button AddPicture;
+        private System.Windows.Forms.Button Back;
+        private System.Windows.Forms.Button Forward;
+        private System.Windows.Forms.Button DeletePicture;
+        private System.Windows.Forms.TextBox NameProduct;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox Kind;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox Description;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox Price;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox Count;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Button GoMain;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProduct;
+        private System.Windows.Forms.Button AddProduct;
     }
 }

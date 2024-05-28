@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlowerClient.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,5 +9,7 @@ namespace FlowerClient.View
 {
     internal interface IAdminView
     {
+        public void DisplayProducts(List<Product> products);
+        public void LoadProducts();
     }
 }

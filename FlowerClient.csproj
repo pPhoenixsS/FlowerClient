@@ -106,8 +106,8 @@
     <Compile Include="Model\Product.cs" />
     <Compile Include="PresenterLogin&amp;Registr\ILoginPresenter.cs" />
     <Compile Include="PresenterLogin&amp;Registr\LoginPresenter.cs" />
-    <Compile Include="PresenterProducts\Admin_AddDelProd_Presenter.cs" />
-    <Compile Include="PresenterProducts\IAdmin_AddDelProd_Presenter.cs" />
+    <Compile Include="PresenterProducts\AdminPresenter.cs" />
+    <Compile Include="PresenterProducts\IAdminPresenter.cs" />
     <Compile Include="PresenterProducts\IMainProductsPresenter.cs" />
     <Compile Include="PresenterProducts\MainProductsPresenter.cs" />
     <Compile Include="View\AdminView.cs">

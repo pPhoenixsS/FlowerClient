@@ -28,7 +28,7 @@ namespace FlowerClient.View
 
             Admin.Visible = presenter.GetRole() == "Admin"; // показываем кнопку админа, если роль админ
 
-            LoadPosts();
+            LoadProducts();
         }
 
         private void ExitProfile_Click(object sender, EventArgs e)
@@ -55,13 +55,13 @@ namespace FlowerClient.View
             admin.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
         }
 
-        public async void LoadPosts()
+        public async void LoadProducts()
         {
             List<Product> products = await presenter.AllProducts();
-            DisplayPosts(products);
+            DisplayProducts(products);
         }
 
-        public void DisplayPosts(List<Product> products)
+        public void DisplayProducts(List<Product> products)
         {
             flowLayoutPanelProduct.Controls.Clear(); // Очистить существующие элементы управления
 
@@ -118,6 +118,8 @@ namespace FlowerClient.View
                     this.Hide(); // скрываем текущую форму
                     cartForm.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
                 };
+
+                OnePanel.Controls.Add(toCart);
 
                 // Объявление переменной для хранения формы подсказки
                 ProductTooltipForm tooltipForm = null;

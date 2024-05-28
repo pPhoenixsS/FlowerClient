@@ -13,13 +13,13 @@ using System.Xml.Linq;
 
 namespace FlowerClient.PresenterProducts
 {
-    internal class Admin_Add_DelProd_Presenter : IAdmin_Add_DelProd_Presenter
+    internal class AdminPresenter : IAdminPresenter
     {
         IAdminView view;
         Product model;
         string result;
 
-        public Admin_Add_DelProd_Presenter(IAdminView view)
+        public AdminPresenter(IAdminView view)
         {
             this.view = view;
             this.model = new Product();
@@ -145,6 +145,7 @@ namespace FlowerClient.PresenterProducts
 
                     // Десериализация JSON данных в объект Product
                     var product = JsonConvert.DeserializeObject<Product>(data);
+
                     result = "ok";
                     break;
                 default:
