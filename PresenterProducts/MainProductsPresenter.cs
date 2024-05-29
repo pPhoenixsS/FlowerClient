@@ -1,4 +1,5 @@
 ﻿using FlowerClient.Additions;
+using FlowerClient.model;
 using FlowerClient.Model;
 using FlowerClient.View;
 using Newtonsoft.Json;
@@ -30,6 +31,8 @@ namespace FlowerClient.PresenterProducts
 
             using HttpClient httpClient = new HttpClient();
 
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
+
             var response = await httpClient.GetAsync("http://localhost:5001/products");
 
             int statusCode = (int)response.StatusCode;
@@ -58,6 +61,8 @@ namespace FlowerClient.PresenterProducts
             await RefreshToken.CheckAndRefreshTokenIfNeeded();
 
             using HttpClient httpClient = new HttpClient();
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
 
             var response = await httpClient.GetAsync("http://localhost:5001/product/" + id.ToString());
 

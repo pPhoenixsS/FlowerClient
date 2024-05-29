@@ -14,5 +14,7 @@ namespace FlowerClient.Model
         public double Price { get; set; }
         public int Count { get; set; }
         public List<string> Images { get; set; }
+
+        public List<byte[]> ImagesByte { get; set; } 
     }
 }

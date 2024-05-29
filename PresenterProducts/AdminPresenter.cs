@@ -5,8 +5,10 @@ using FlowerClient.View;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
@@ -41,20 +43,29 @@ namespace FlowerClient.PresenterProducts
 
             using HttpClient httpClient = new HttpClient();
 
-            var body = new
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
+
+            using var multipartContent = new MultipartFormDataContent();
+
+            // Добавляем основные поля продукта
+            multipartContent.Add(new StringContent(Name), "Name");
+            multipartContent.Add(new StringContent(Kind), "Kind");
+            multipartContent.Add(new StringContent(Description), "Description");
+            multipartContent.Add(new StringContent(Price.ToString()), "Price");
+            multipartContent.Add(new StringContent(Count.ToString()), "Count");
+
+            // Добавляем изображения
+            foreach (var imagePath in Images)
             {
-                Name = model.Name,
-                Kind = model.Kind,
-                Description = model.Description,
-                Price = model.Price,
-                Count = model.Count,
-                Images = model.Images,
-            };
+                var fileStream = File.OpenRead(imagePath);
+                var fileContent = new StreamContent(fileStream);
+                // тип содержимого для изображений
+                fileContent.Headers.ContentType = new MediaTypeHeaderValue("image/png"); // или "image/jpeg" в зависимости от типа изображений
+                multipartContent.Add(fileContent, "Images", Path.GetFileName(imagePath));
+            }
 
-            string jsonBody = JsonConvert.SerializeObject(body);
-            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
-
-            var response = await httpClient.PostAsync("http://localhost:5001/addproduct", content);
+            // Отправляем запрос с основными данными и изображениями
+            var response = await httpClient.PostAsync("http://localhost:5001/addproduct", multipartContent);
 
             int statusCode = (int)response.StatusCode;
 
@@ -74,13 +85,15 @@ namespace FlowerClient.PresenterProducts
                     break;
             }
         }
-        
+
         public async Task DeleteProduct(int id) // удаление продукта
         {
             // Проверить и обновить токен при необходимости
             await RefreshToken.CheckAndRefreshTokenIfNeeded();
 
             using HttpClient httpClient = new HttpClient();
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
 
             var response = await httpClient.DeleteAsync("http://localhost:5001/deleteproduct/" + id.ToString());
 
@@ -104,6 +117,8 @@ namespace FlowerClient.PresenterProducts
 
             using HttpClient httpClient = new HttpClient();
 
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
+
             var response = await httpClient.GetAsync("http://localhost:5001/products");
 
             int statusCode = (int)response.StatusCode;
@@ -116,6 +131,25 @@ namespace FlowerClient.PresenterProducts
 
                     // Десериализация JSON данных в объект List<Product>
                     var products = JsonConvert.DeserializeObject<List<Product>>(data);
+
+                    // Преобразование изображений из массива строк (приходит с сервера) в массив байтов
+                    foreach (var product in products)
+                    {
+                        if (product.Images != null && product.Images.Any())
+                        {
+                            var images = new List<byte[]>();
+
+                            foreach (var imageString in product.Images)
+                            {
+                                // Преобразование строки в массив байтов
+                                byte[] imageBytes = Convert.FromBase64String(imageString);
+                                images.Add(imageBytes);
+                            }
+
+                            product.ImagesByte = images;
+                        }
+                    }
+
                     result = "ok";
                     return products;
                 default:
@@ -132,6 +166,8 @@ namespace FlowerClient.PresenterProducts
             await RefreshToken.CheckAndRefreshTokenIfNeeded();
 
             using HttpClient httpClient = new HttpClient();
+
+            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
 
             var response = await httpClient.GetAsync("http://localhost:5001/product/" + id.ToString());
 

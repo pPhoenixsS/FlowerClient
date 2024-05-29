@@ -25,8 +25,12 @@ internal static class TokenParameters
             {
                 // Преобразуем Unix время в DateTime
                 var expirationDate = DateTimeOffset.FromUnixTimeSeconds(long.Parse(expirationDateUnix)).UtcDateTime;
-                Console.WriteLine(expirationDate);
-                return expirationDate;
+
+                // Получаем временную зону UTC+3
+                var timeZone = TimeZoneInfo.FindSystemTimeZoneById("Russian Standard Time");
+                var expirationDateWithOffset = TimeZoneInfo.ConvertTimeFromUtc(expirationDate, timeZone);
+                Console.WriteLine(expirationDateWithOffset);
+                return expirationDateWithOffset;
             }
             else
             {

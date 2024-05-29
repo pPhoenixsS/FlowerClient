@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,12 +78,21 @@ namespace FlowerClient.View
                 FlowLayoutPanel OnePanel = new FlowLayoutPanel();
                 OnePanel.FlowDirection = FlowDirection.TopDown;
                 OnePanel.AutoSize = true;
-                OnePanel.BackColor = Color.Blue;
+                OnePanel.BackColor = Color.Pink;
                 OnePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
                 // Создать метку для отображения картинки (одной) продукта
                 PictureBox imageOne = new PictureBox();
-                imageOne.Image = Image.FromFile(product.Images[0]);
+
+                // Преобразовать массив байтов в изображение
+                if (product.ImagesByte != null && product.ImagesByte.Count > 0)
+                {
+                    using (var ms = new MemoryStream(product.ImagesByte[0]))
+                    {
+                        imageOne.Image = Image.FromStream(ms);
+                    }
+                }
+
                 imageOne.Width = 50; // Фиксированная ширина
                 imageOne.Height = 50; // Фиксированная высота
                 OnePanel.Controls.Add(imageOne);
@@ -135,7 +145,7 @@ namespace FlowerClient.View
                     if (tooltipForm == null)
                     {
                         // Создаем и показываем форму подсказки
-                        tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Images);
+                        tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Count, product.Price, product.ImagesByte);
                         tooltipForm.Show();
                     }
                 };

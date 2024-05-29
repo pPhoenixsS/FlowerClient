@@ -164,6 +164,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="View\AdminView.resx">
       <DependentUpon>AdminView.cs</DependentUpon>
@@ -194,6 +195,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\HeadersForSafety.txt" />
+    <None Include="ImagesForView\details.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

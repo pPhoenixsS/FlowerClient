@@ -64,7 +64,7 @@ namespace FlowerClient.View
         {
             flowLayoutPanelProduct.Controls.Clear(); // Очистить существующие элементы управления
 
-            flowLayoutPanelProduct.WrapContents = false; // перенос при достижении кря контейнера
+            flowLayoutPanelProduct.WrapContents = false; // перенос при достижении края контейнера
 
             foreach (var product in products)
             {
@@ -72,41 +72,63 @@ namespace FlowerClient.View
                 FlowLayoutPanel OnePanel = new FlowLayoutPanel();
                 OnePanel.FlowDirection = FlowDirection.TopDown;
                 OnePanel.AutoSize = true;
-                OnePanel.BackColor = Color.Blue;
+                OnePanel.BackColor = Color.Pink;
                 OnePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
+                // Создание панели для значка
+                Panel iconPanel = new Panel();
+                iconPanel.Size = new Size(50, 50); // Задаем размер панели, чуть больше значка
+                iconPanel.Location = new Point(OnePanel.Width - iconPanel.Width - 10, 10); // Устанавливаем положение панели в правом верхнем углу основного OnePanel
+                iconPanel.BackColor = Color.Transparent; // Устанавливаем прозрачный цвет фона панели (если нужно)
+
+                // Создание значка для доп. инфы
+                PictureBox iconPictureBox = new PictureBox();
+                iconPictureBox.Image = Properties.Resources.details1;
+                iconPictureBox.Size = new Size(40, 40);
+                iconPictureBox.Cursor = Cursors.Hand; // Устанавливаем курсор руки при наведении
+                iconPictureBox.Location = new Point((iconPanel.Width - iconPictureBox.Width) / 2, (iconPanel.Height - iconPictureBox.Height) / 2); // Центрируем значок внутри панели
+
+                // Добавляем значок на панель
+                iconPanel.Controls.Add(iconPictureBox);
+
+                // Добавляем панель с значком на основную панель
+                OnePanel.Controls.Add(iconPanel);
+
 
                 // Создать метку для отображения картинки (одной) продукта
                 PictureBox imageOne = new PictureBox();
-                imageOne.Image = Image.FromFile(product.Images[0]);
-                imageOne.Width = 50; // Фиксированная ширина
-                imageOne.Height = 50; // Фиксированная высота
+
+                // Преобразовать массив байтов в изображение
+                if (product.ImagesByte != null && product.ImagesByte.Count > 0)
+                {
+                    using (var ms = new MemoryStream(product.ImagesByte[0]))
+                    {
+                        imageOne.Image = Image.FromStream(ms);
+                    }
+                }
+                imageOne.Size = new Size(200, 200); // Устанавливаем размер PictureBox
+                imageOne.SizeMode = PictureBoxSizeMode.StretchImage; // Устанавливаем режим отображения
                 OnePanel.Controls.Add(imageOne);
 
                 // Создать метку для отображения названия продукта
                 Label label = new Label();
                 label.Text = product.Name;
-                label.Font = new Font("Corsiva", 14);
+                label.Font = new Font("Monotype Corsiva", 14);
+                label.AutoSize = true;
                 OnePanel.Controls.Add(label);
 
                 // Создать метку для отображения цены продукта
                 Label price = new Label();
                 price.Text = product.Price.ToString() + " руб";
-                price.Font = new Font("Corsiva", 14);
-                OnePanel.Controls.Add(price);
-
-                // Создать метку для отображения кол-ва для заказа продукта
-                TextBox count = new TextBox();
-                count.ReadOnly = false;
-                count.BorderStyle = BorderStyle.None; // Убрать границы 
-                count.Width = 10; // Фиксированная ширина
-                count.Font = new Font("Corsiva", 14);
+                price.Font = new Font("Monotype Corsiva", 14);
+                price.AutoSize = true;
                 OnePanel.Controls.Add(price);
 
                 // Создать кнопку "удалить"
                 Button delete = new Button();
                 delete.Text = "Удалить";
                 delete.AutoSize = true;
-                delete.Font = new Font("Corsiva", 14);
+                delete.Font = new Font("Monotype Corsiva", 14);
 
                 // Создать обработчик события для кнопки "удалить"
                 delete.Click += async (sender, e) =>
@@ -129,20 +151,23 @@ namespace FlowerClient.View
                 // Объявление переменной для хранения формы подсказки
                 ProductTooltipForm tooltipForm = null;
 
-                // Обработчик события MouseEnter для панели
-                OnePanel.MouseEnter += (sender, e) =>
+                // Обработчик события MouseEnter для значка
+                iconPictureBox.MouseEnter += (sender, e) =>
                 {
                     // Проверяем, что форма подсказки еще не отображается
                     if (tooltipForm == null)
                     {
                         // Создаем и показываем форму подсказки
-                        tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Images);
+                        tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Count, product.Price, product.ImagesByte);
+                        tooltipForm.StartPosition = FormStartPosition.Manual;
+                        // Устанавливаем положение формы рядом со значком
+                        tooltipForm.Location = iconPictureBox.PointToScreen(new Point(iconPictureBox.Width, 0));
                         tooltipForm.Show();
                     }
                 };
 
-                // Обработчик события MouseLeave для панели
-                OnePanel.MouseLeave += (sender, e) =>
+                // Обработчик события MouseLeave для значка
+                iconPictureBox.MouseLeave += (sender, e) =>
                 {
                     // Проверяем, что форма подсказки отображается
                     if (tooltipForm != null)
@@ -261,6 +286,8 @@ namespace FlowerClient.View
                     Price.Clear();
                     Count.Clear();
                     pictureBox.Image = null;
+                    photoPaths = null;
+                    currentPhotoIndex = 0;
                 }
                 else
                 {
