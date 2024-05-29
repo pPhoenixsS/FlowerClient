@@ -17,6 +17,7 @@ using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
 using Label = System.Windows.Forms.Label;
 using System.IO;
+using Microsoft.IdentityModel.Tokens;
 
 namespace FlowerClient.View
 {
@@ -52,6 +53,10 @@ namespace FlowerClient.View
         public async void LoadProducts()
         {
             List<Product> products = await presenter.AllProducts();
+
+            if (products == null)
+                return;
+
             DisplayProducts(products);
         }
 
@@ -225,24 +230,47 @@ namespace FlowerClient.View
 
         private async void AddProduct_Click(object sender, EventArgs e) // добавление продукта
         {
-            await presenter.AddProduct(NameProduct.Text, Kind.Text, Description.Text, Double.Parse(Price.Text), Int32.Parse(Count.Text), photoPaths);
-
-            if (presenter.ResultAsync == "ok")
+            // Проверка, что все поля не пустые
+            if (!string.IsNullOrEmpty(NameProduct.Text) &&
+                !string.IsNullOrEmpty(Kind.Text) &&
+                !string.IsNullOrEmpty(Description.Text) &&
+                !string.IsNullOrEmpty(Price.Text) &&
+                !string.IsNullOrEmpty(Count.Text) &&
+                photoPaths != null)
             {
-                MessageBox.Show("Пост успешно опубликован");
-                LoadProducts();
+                // Проверка, что Цена является числом и Количество является целым числом
+                if (double.TryParse(Price.Text, out double result1) && int.TryParse(Count.Text, out int result2))
+                {
+                    // Добавление продукта
+                    await presenter.AddProduct(NameProduct.Text, Kind.Text, Description.Text, result1, result2, photoPaths);
+
+                    if (presenter.ResultAsync == "ok")
+                    {
+                        MessageBox.Show("Пост успешно опубликован");
+                        LoadProducts();
+                    }
+                    else
+                    {
+                        MessageBox.Show(presenter.ResultAsync);
+                    }
+
+                    // Очистка полей
+                    NameProduct.Clear();
+                    Kind.Clear();
+                    Description.Clear();
+                    Price.Clear();
+                    Count.Clear();
+                    pictureBox.Image = null;
+                }
+                else
+                {
+                    MessageBox.Show("Пожалуйста, заполните поля Цена и Количество корректными числовыми значениями.");
+                }
             }
             else
             {
-                MessageBox.Show(presenter.ResultAsync);
+                MessageBox.Show("Пожалуйста, заполните все поля для добавления товара.");
             }
-
-            NameProduct.Clear();
-            Kind.Clear();
-            Description.Clear();
-            Price.Clear();
-            Count.Clear();
-            pictureBox.Image = null;
         }
     }
 }
