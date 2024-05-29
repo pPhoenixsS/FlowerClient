@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminView));
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox = new System.Windows.Forms.PictureBox();
             this.AddPicture = new System.Windows.Forms.Button();
@@ -48,7 +49,9 @@
             this.GoMain = new System.Windows.Forms.Button();
             this.flowLayoutPanelProduct = new System.Windows.Forms.FlowLayoutPanel();
             this.AddProduct = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -63,55 +66,60 @@
             // 
             // pictureBox
             // 
-            this.pictureBox.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pictureBox.BackColor = System.Drawing.Color.Pink;
             this.pictureBox.Location = new System.Drawing.Point(12, 73);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(400, 250);
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
             // 
             // AddPicture
             // 
+            this.AddPicture.BackColor = System.Drawing.Color.LightPink;
             this.AddPicture.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.AddPicture.Location = new System.Drawing.Point(12, 372);
             this.AddPicture.Name = "AddPicture";
             this.AddPicture.Size = new System.Drawing.Size(400, 39);
             this.AddPicture.TabIndex = 3;
             this.AddPicture.Text = "Добавить фотографию";
-            this.AddPicture.UseVisualStyleBackColor = true;
+            this.AddPicture.UseVisualStyleBackColor = false;
             this.AddPicture.Click += new System.EventHandler(this.AddPicture_Click);
             // 
             // Back
             // 
+            this.Back.BackColor = System.Drawing.Color.LightPink;
             this.Back.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.Back.Location = new System.Drawing.Point(12, 327);
             this.Back.Name = "Back";
             this.Back.Size = new System.Drawing.Size(98, 39);
             this.Back.TabIndex = 4;
             this.Back.Text = "Назад";
-            this.Back.UseVisualStyleBackColor = true;
+            this.Back.UseVisualStyleBackColor = false;
             this.Back.Click += new System.EventHandler(this.Back_Click);
             // 
             // Forward
             // 
+            this.Forward.BackColor = System.Drawing.Color.LightPink;
             this.Forward.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.Forward.Location = new System.Drawing.Point(314, 327);
             this.Forward.Name = "Forward";
             this.Forward.Size = new System.Drawing.Size(98, 39);
             this.Forward.TabIndex = 5;
             this.Forward.Text = "Вперед";
-            this.Forward.UseVisualStyleBackColor = true;
+            this.Forward.UseVisualStyleBackColor = false;
             this.Forward.Click += new System.EventHandler(this.Next_Click);
             // 
             // DeletePicture
             // 
+            this.DeletePicture.BackColor = System.Drawing.Color.LightPink;
             this.DeletePicture.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.DeletePicture.Location = new System.Drawing.Point(12, 417);
             this.DeletePicture.Name = "DeletePicture";
             this.DeletePicture.Size = new System.Drawing.Size(400, 39);
             this.DeletePicture.TabIndex = 6;
             this.DeletePicture.Text = "Удалить фотографию";
-            this.DeletePicture.UseVisualStyleBackColor = true;
+            this.DeletePicture.UseVisualStyleBackColor = false;
             this.DeletePicture.Click += new System.EventHandler(this.DeletePicture_Click);
             // 
             // NameProduct
@@ -209,7 +217,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(427, 62);
+            this.label8.Location = new System.Drawing.Point(418, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 37);
             this.label8.TabIndex = 18;
@@ -217,38 +225,53 @@
             // 
             // GoMain
             // 
+            this.GoMain.BackColor = System.Drawing.Color.LightPink;
             this.GoMain.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.GoMain.Location = new System.Drawing.Point(1294, 9);
             this.GoMain.Name = "GoMain";
             this.GoMain.Size = new System.Drawing.Size(176, 39);
             this.GoMain.TabIndex = 21;
             this.GoMain.Text = "На главную";
-            this.GoMain.UseVisualStyleBackColor = true;
+            this.GoMain.UseVisualStyleBackColor = false;
             this.GoMain.Click += new System.EventHandler(this.GoMain_Click);
             // 
             // flowLayoutPanelProduct
             // 
             this.flowLayoutPanelProduct.AutoScroll = true;
-            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(434, 102);
+            this.flowLayoutPanelProduct.BackColor = System.Drawing.Color.White;
+            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(425, 102);
             this.flowLayoutPanelProduct.Name = "flowLayoutPanelProduct";
-            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(1036, 715);
+            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(1045, 715);
             this.flowLayoutPanelProduct.TabIndex = 22;
             // 
             // AddProduct
             // 
+            this.AddProduct.BackColor = System.Drawing.Color.LightPink;
             this.AddProduct.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.AddProduct.Location = new System.Drawing.Point(12, 778);
             this.AddProduct.Name = "AddProduct";
             this.AddProduct.Size = new System.Drawing.Size(400, 39);
             this.AddProduct.TabIndex = 23;
             this.AddProduct.Text = "Добавить товар";
-            this.AddProduct.UseVisualStyleBackColor = true;
+            this.AddProduct.UseVisualStyleBackColor = false;
             this.AddProduct.Click += new System.EventHandler(this.AddProduct_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(1179, 9);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(109, 95);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 24;
+            this.pictureBox1.TabStop = false;
             // 
             // AdminView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(120F, 120F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.BackColor = System.Drawing.Color.MistyRose;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.ClientSize = new System.Drawing.Size(1486, 829);
             this.Controls.Add(this.AddProduct);
             this.Controls.Add(this.flowLayoutPanelProduct);
@@ -270,9 +293,13 @@
             this.Controls.Add(this.AddPicture);
             this.Controls.Add(this.pictureBox);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pictureBox1);
+            this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminView";
-            this.Text = "AdminView";
+            this.Text = "Администратор";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -300,5 +327,6 @@
         private System.Windows.Forms.Button GoMain;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProduct;
         private System.Windows.Forms.Button AddProduct;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

@@ -1,4 +1,5 @@
-﻿using FlowerClient.Model;
+﻿using FlowerClient.model;
+using FlowerClient.Model;
 using FlowerClient.presenter;
 using FlowerClient.PresenterProducts;
 using FlowerClient.view;
@@ -9,21 +10,25 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Label = System.Windows.Forms.Label;
 
 namespace FlowerClient.View
 {
     public partial class MainProductsView : Form, IMainProductsView
     {
         private readonly IMainProductsPresenter presenter;
+        LoginModel model;
 
         public MainProductsView()
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             presenter = new MainProductsPresenter(this);
 
@@ -69,8 +74,9 @@ namespace FlowerClient.View
         public void DisplayProducts(List<Product> products)
         {
             flowLayoutPanelProduct.Controls.Clear(); // Очистить существующие элементы управления
+            flowLayoutPanelProduct.BackColor = Color.Transparent; // Установка прозрачного цвета фона
 
-            flowLayoutPanelProduct.WrapContents = false; // перенос при достижении кря контейнера
+            flowLayoutPanelProduct.WrapContents = true; // Переносить элементы на новую строку при достижении края контейнера
 
             foreach (var product in products)
             {
@@ -80,6 +86,16 @@ namespace FlowerClient.View
                 OnePanel.AutoSize = true;
                 OnePanel.BackColor = Color.Pink;
                 OnePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+
+                // Создание значка
+                PictureBox iconPictureBox = new PictureBox();
+                iconPictureBox.Image = Properties.Resources.details1; // Замените на ваш значок
+                iconPictureBox.Size = new Size(30, 30); // Устанавливаем размер PictureBox
+                iconPictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // Устанавливаем режим отображения
+                iconPictureBox.Cursor = Cursors.Hand; // Устанавливаем курсор руки при наведении
+
+                // Добавляем значок на панель
+                OnePanel.Controls.Add(iconPictureBox);
 
                 // Создать метку для отображения картинки (одной) продукта
                 PictureBox imageOne = new PictureBox();
@@ -92,66 +108,83 @@ namespace FlowerClient.View
                         imageOne.Image = Image.FromStream(ms);
                     }
                 }
-
-                imageOne.Width = 50; // Фиксированная ширина
-                imageOne.Height = 50; // Фиксированная высота
+                imageOne.Size = new Size(200, 200); // Устанавливаем размер PictureBox
+                imageOne.SizeMode = PictureBoxSizeMode.StretchImage; // Устанавливаем режим отображения
                 OnePanel.Controls.Add(imageOne);
 
                 // Создать метку для отображения названия продукта
                 Label label = new Label();
                 label.Text = product.Name;
-                label.Font = new Font("Corsiva", 14);
+                label.Font = new Font("Monotype Corsiva", 14, FontStyle.Bold);
+                label.AutoSize = true;
+                label.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
                 OnePanel.Controls.Add(label);
 
                 // Создать метку для отображения цены продукта
                 Label price = new Label();
                 price.Text = product.Price.ToString() + " руб";
-                price.Font = new Font("Corsiva", 14);
+                price.Font = new Font("Monotype Corsiva", 14);
+                price.AutoSize = true;
+                price.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
                 OnePanel.Controls.Add(price);
 
-                // Создать метку для отображения кол-ва для заказа продукта
-                TextBox count = new TextBox();
-                count.ReadOnly = false;
-                count.BorderStyle = BorderStyle.None; // Убрать границы 
-                count.Width = 10; // Фиксированная ширина
-                count.Font = new Font("Corsiva", 14);
-                OnePanel.Controls.Add(price);
+                // Создать панель для текстбокса
+                FlowLayoutPanel panelBuy = new FlowLayoutPanel();
+                panelBuy.AutoSize = true;
 
-                // Создать кнопку "добавить в корзину"
-                Button toCart = new Button();
-                toCart.Text = "В корзину";
-                toCart.AutoSize = true;
-                toCart.Font = new Font("Corsiva", 14);
+                // Создать метку для отображения количества для покупки
+                Label countBuyName = new Label();
+                countBuyName.Text = "Кол-во:";
+                countBuyName.Font = new Font("Monotype Corsiva", 14);
+                countBuyName.AutoSize = true;
+                panelBuy.Controls.Add(countBuyName);
 
-                // Обработчик события Click для кнопки "Добавить в корзину"
-                toCart.Click += (sender, e) =>
+                // Создать метку для отображения количества покупаемого продукта
+                TextBox countBuy = new TextBox();
+                countBuy.ReadOnly = false;
+                countBuy.Font = new Font("Monotype Corsiva", 14);
+                countBuy.AutoSize = true;
+                panelBuy.Controls.Add(countBuy);
+
+                OnePanel.Controls.Add(panelBuy);
+
+                // Создать кнопку "В корзину"
+                Button putToCart = new Button();
+                putToCart.Text = "В корзину";
+                putToCart.AutoSize = true;
+                putToCart.BackColor = Color.LightPink;
+                putToCart.Font = new Font("Monotype Corsiva", 14);
+
+                // Создать обработчик события для кнопки "В корзину"
+                putToCart.Click += (sender, e) =>
                 {
-                    // Создание и отображение формы корзины
-                    CartView cartForm = new CartView(); // создаем новую форму
-                    cartForm.Show(); // показываем форму
-                    this.Hide(); // скрываем текущую форму
-                    cartForm.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
+                    int countBuyProduct = int.Parse(countBuy.Text);
+                    ShoppingCart.AddProductToCart(model.Email, product, countBuyProduct); // добавляем товар в корзину
                 };
 
-                OnePanel.Controls.Add(toCart);
+                OnePanel.Controls.Add(putToCart);
 
                 // Объявление переменной для хранения формы подсказки
                 ProductTooltipForm tooltipForm = null;
 
-                // Обработчик события MouseEnter для панели
-                OnePanel.MouseEnter += (sender, e) =>
+                // Обработчик события MouseEnter для значка
+                iconPictureBox.MouseEnter += (sender, e) =>
                 {
                     // Проверяем, что форма подсказки еще не отображается
                     if (tooltipForm == null)
                     {
                         // Создаем и показываем форму подсказки
                         tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Count, product.Price, product.ImagesByte);
+                        tooltipForm.StartPosition = FormStartPosition.Manual;
+                        // Устанавливаем положение формы рядом со значком (слева от него)
+                        Point iconLocation = iconPictureBox.PointToScreen(Point.Empty);
+                        tooltipForm.Location = new Point(iconLocation.X - tooltipForm.Width, iconLocation.Y);
                         tooltipForm.Show();
                     }
                 };
 
-                // Обработчик события MouseLeave для панели
-                OnePanel.MouseLeave += (sender, e) =>
+                // Обработчик события MouseLeave для значка
+                iconPictureBox.MouseLeave += (sender, e) =>
                 {
                     // Проверяем, что форма подсказки отображается
                     if (tooltipForm != null)

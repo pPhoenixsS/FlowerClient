@@ -15,6 +15,8 @@ namespace FlowerClient.View
         public CartView()
         {
             InitializeComponent();
+
+            this.FormBorderStyle = FormBorderStyle.None;
         }
     }
 }

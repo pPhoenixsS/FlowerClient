@@ -45,6 +45,25 @@ namespace FlowerClient.PresenterProducts
 
                     // Десериализация JSON данных в объект List<Product>
                     var products = JsonConvert.DeserializeObject<List<Product>>(data);
+
+                    // Преобразование изображений из массива строк (приходит с сервера) в массив байтов
+                    foreach (var product in products)
+                    {
+                        if (product.Images != null && product.Images.Any())
+                        {
+                            var images = new List<byte[]>();
+
+                            foreach (var imageString in product.Images)
+                            {
+                                // Преобразование строки в массив байтов
+                                byte[] imageBytes = Convert.FromBase64String(imageString);
+                                images.Add(imageBytes);
+                            }
+
+                            product.ImagesByte = images;
+                        }
+                    }
+
                     result = "ok";
                     return products;
                 default:

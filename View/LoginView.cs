@@ -25,6 +25,7 @@ namespace FlowerClient.view
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             presenter = new LoginPresenter(this);
 

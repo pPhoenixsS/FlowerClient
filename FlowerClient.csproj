@@ -102,6 +102,8 @@
     <Compile Include="Additions\TokenParameters.cs" />
     <Compile Include="Additions\RefreshToken.cs" />
     <Compile Include="Additions\SaveHeaders.cs" />
+    <Compile Include="Model\CartItem.cs" />
+    <Compile Include="Model\ShoppingCart.cs" />
     <Compile Include="Model\Header.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="PresenterLogin&amp;Registr\ILoginPresenter.cs" />
@@ -110,6 +112,11 @@
     <Compile Include="PresenterProducts\IAdminPresenter.cs" />
     <Compile Include="PresenterProducts\IMainProductsPresenter.cs" />
     <Compile Include="PresenterProducts\MainProductsPresenter.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="View\AdminView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,22 +165,23 @@
     </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <EmbeddedResource Include="View\AdminView.resx">
       <DependentUpon>AdminView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\CartView.resx">
+      <DependentUpon>CartView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\MainProductsView.resx">
       <DependentUpon>MainProductsView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\LoginView.resx">
       <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="View\ProductTooltipForm.resx">
+      <DependentUpon>ProductTooltipForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View\RegisterView.resx">
       <DependentUpon>RegisterView.cs</DependentUpon>
@@ -195,6 +203,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\HeadersForSafety.txt" />
+    <None Include="Image\ImagesForView\details.png" />
+    <None Include="Image\ImagesForView\add-user.png" />
+    <None Include="ImageForBack\free-icon-florist-5875590.png" />
+    <None Include="ImagesForView\buy.png" />
     <None Include="ImagesForView\details.png" />
   </ItemGroup>
   <ItemGroup />

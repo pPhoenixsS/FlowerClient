@@ -25,6 +25,7 @@ namespace FlowerClient
             InitializeComponent();
             this.AutoScaleMode = AutoScaleMode.Dpi;
             this.StartPosition = FormStartPosition.CenterScreen;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             presenter = new RegisterPresenter(this);
 
@@ -80,6 +81,14 @@ namespace FlowerClient
             {
                 e.SuppressKeyPress = true;
             }
+        }
+
+        private void ButtonLogin_Click(object sender, EventArgs e)
+        {
+            LoginView auth = new LoginView();
+            auth.Show(); // показываем форму
+            this.Hide(); // скрываем текущую форму
+            auth.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
         }
     }
 }

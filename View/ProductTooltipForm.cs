@@ -26,10 +26,9 @@ namespace FlowerClient.View
             // Создать панель для каждого продукта
             FlowLayoutPanel Panelka = new FlowLayoutPanel();
             Panelka.FlowDirection = FlowDirection.TopDown;
-            Panelka.BackColor = Color.Pink;
-            Panelka.Dock = DockStyle.Fill;
+            Panelka.BackColor = Color.LightPink;
             Panelka.WrapContents = false;
-            Panelka.AutoScroll = true;
+            Panelka.Size = new Size(300, 300);
             Panelka.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             // Инициализация PictureBox для отображения картинок
@@ -43,33 +42,38 @@ namespace FlowerClient.View
 
             // Установка информации о продукте под картинкой
             Label nameLabel = new Label();
-            nameLabel.Text = "Название: " + productName;
-            nameLabel.Font = new Font("Monotype Corsiva", 14);
+            nameLabel.Text = productName;
+            nameLabel.Font = new Font("Monotype Corsiva", 14, FontStyle.Bold);
             nameLabel.AutoSize = true;
+            nameLabel.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
             Panelka.Controls.Add(nameLabel);
 
             Label typeLabel = new Label();
             typeLabel.Text = "Сорт: " + productKind;
             typeLabel.Font = new Font("Monotype Corsiva", 14);
             typeLabel.AutoSize = true;
+            typeLabel.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
             Panelka.Controls.Add(typeLabel);
 
             Label descriptionLabel = new Label();
             descriptionLabel.Text = "Описание: " + productDescription;
             descriptionLabel.Font = new Font("Monotype Corsiva", 14);
             descriptionLabel.AutoSize = true;
+            descriptionLabel.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
             Panelka.Controls.Add(descriptionLabel);
 
             Label countLabel = new Label();
             countLabel.Text = "В наличии: " + productCount + " шт.";
             countLabel.Font = new Font("Monotype Corsiva", 14);
             countLabel.AutoSize = true;
+            countLabel.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
             Panelka.Controls.Add(countLabel);
 
             Label priceLabel = new Label();
             priceLabel.Text = "Цена: " + productPrice + " руб.";
             priceLabel.Font = new Font("Monotype Corsiva", 14);
             priceLabel.AutoSize = true;
+            priceLabel.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
             Panelka.Controls.Add(priceLabel);
 
             // Установка размера формы, чтобы вместить изображение и информацию о продукте
@@ -96,7 +100,7 @@ namespace FlowerClient.View
             // Настройка формы
             this.Text = "Подробная информация";
             this.FormBorderStyle = FormBorderStyle.None;
-            this.Size = new Size(270, 370); ;
+            this.Size = new Size(300,400);
         }
 
         private void Timer_Tick(object sender, EventArgs e)

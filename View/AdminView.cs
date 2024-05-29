@@ -33,6 +33,7 @@ namespace FlowerClient.View
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
             this.AutoScaleMode = AutoScaleMode.Dpi;
+            this.FormBorderStyle = FormBorderStyle.None;
 
             presenter = new AdminPresenter(this);
 
@@ -63,8 +64,9 @@ namespace FlowerClient.View
         public void DisplayProducts(List<Product> products)
         {
             flowLayoutPanelProduct.Controls.Clear(); // Очистить существующие элементы управления
+            flowLayoutPanelProduct.BackColor = Color.Transparent; // Установка прозрачного цвета фона
 
-            flowLayoutPanelProduct.WrapContents = false; // перенос при достижении края контейнера
+            flowLayoutPanelProduct.WrapContents = true; // Переносить элементы на новую строку при достижении края контейнера
 
             foreach (var product in products)
             {
@@ -75,25 +77,15 @@ namespace FlowerClient.View
                 OnePanel.BackColor = Color.Pink;
                 OnePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
-                // Создание панели для значка
-                Panel iconPanel = new Panel();
-                iconPanel.Size = new Size(50, 50); // Задаем размер панели, чуть больше значка
-                iconPanel.Location = new Point(OnePanel.Width - iconPanel.Width - 10, 10); // Устанавливаем положение панели в правом верхнем углу основного OnePanel
-                iconPanel.BackColor = Color.Transparent; // Устанавливаем прозрачный цвет фона панели (если нужно)
-
-                // Создание значка для доп. инфы
+                // Создание значка
                 PictureBox iconPictureBox = new PictureBox();
-                iconPictureBox.Image = Properties.Resources.details1;
-                iconPictureBox.Size = new Size(40, 40);
+                iconPictureBox.Image = Properties.Resources.details1; // Замените на ваш значок
+                iconPictureBox.Size = new Size(30, 30); // Устанавливаем размер PictureBox
+                iconPictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // Устанавливаем режим отображения
                 iconPictureBox.Cursor = Cursors.Hand; // Устанавливаем курсор руки при наведении
-                iconPictureBox.Location = new Point((iconPanel.Width - iconPictureBox.Width) / 2, (iconPanel.Height - iconPictureBox.Height) / 2); // Центрируем значок внутри панели
 
                 // Добавляем значок на панель
-                iconPanel.Controls.Add(iconPictureBox);
-
-                // Добавляем панель с значком на основную панель
-                OnePanel.Controls.Add(iconPanel);
-
+                OnePanel.Controls.Add(iconPictureBox);
 
                 // Создать метку для отображения картинки (одной) продукта
                 PictureBox imageOne = new PictureBox();
@@ -106,6 +98,7 @@ namespace FlowerClient.View
                         imageOne.Image = Image.FromStream(ms);
                     }
                 }
+
                 imageOne.Size = new Size(200, 200); // Устанавливаем размер PictureBox
                 imageOne.SizeMode = PictureBoxSizeMode.StretchImage; // Устанавливаем режим отображения
                 OnePanel.Controls.Add(imageOne);
@@ -113,8 +106,9 @@ namespace FlowerClient.View
                 // Создать метку для отображения названия продукта
                 Label label = new Label();
                 label.Text = product.Name;
-                label.Font = new Font("Monotype Corsiva", 14);
+                label.Font = new Font("Monotype Corsiva", 14, FontStyle.Bold);
                 label.AutoSize = true;
+                label.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
                 OnePanel.Controls.Add(label);
 
                 // Создать метку для отображения цены продукта
@@ -122,18 +116,20 @@ namespace FlowerClient.View
                 price.Text = product.Price.ToString() + " руб";
                 price.Font = new Font("Monotype Corsiva", 14);
                 price.AutoSize = true;
+                price.Margin = new Padding(0, 0, 0, 10); // Добавляем отступ снизу
                 OnePanel.Controls.Add(price);
 
                 // Создать кнопку "удалить"
                 Button delete = new Button();
                 delete.Text = "Удалить";
                 delete.AutoSize = true;
+                delete.BackColor = Color.LightPink;
                 delete.Font = new Font("Monotype Corsiva", 14);
 
                 // Создать обработчик события для кнопки "удалить"
                 delete.Click += async (sender, e) =>
                 {
-                    await presenter.DeleteProduct(products.IndexOf(product)); // вызов запроса на удаление
+                    await presenter.DeleteProduct(product.Id); // вызов запроса на удаление
 
                     if (presenter.ResultAsync == "ok")
                     {
@@ -160,8 +156,9 @@ namespace FlowerClient.View
                         // Создаем и показываем форму подсказки
                         tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Count, product.Price, product.ImagesByte);
                         tooltipForm.StartPosition = FormStartPosition.Manual;
-                        // Устанавливаем положение формы рядом со значком
-                        tooltipForm.Location = iconPictureBox.PointToScreen(new Point(iconPictureBox.Width, 0));
+                        // Устанавливаем положение формы рядом со значком (слева от него)
+                        Point iconLocation = iconPictureBox.PointToScreen(Point.Empty);
+                        tooltipForm.Location = new Point(iconLocation.X - tooltipForm.Width, iconLocation.Y);
                         tooltipForm.Show();
                     }
                 };
@@ -286,8 +283,8 @@ namespace FlowerClient.View
                     Price.Clear();
                     Count.Clear();
                     pictureBox.Image = null;
-                    photoPaths = null;
-                    currentPhotoIndex = 0;
+                    photoPaths = new List<string>();
+                    currentPhotoIndex = -1;
                 }
                 else
                 {
