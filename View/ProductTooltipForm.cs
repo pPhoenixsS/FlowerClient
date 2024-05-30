@@ -26,7 +26,7 @@ namespace FlowerClient.View
             // Создать панель для каждого продукта
             FlowLayoutPanel Panelka = new FlowLayoutPanel();
             Panelka.FlowDirection = FlowDirection.TopDown;
-            Panelka.BackColor = Color.LightPink;
+            Panelka.BackColor = Color.PaleVioletRed;
             Panelka.Size = new Size(350, 400);
             Panelka.AutoScroll = true;
             Panelka.WrapContents = false; // Переносить элементы на новую строку при достижении края контейнера

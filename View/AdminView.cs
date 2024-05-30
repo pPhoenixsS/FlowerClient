@@ -158,9 +158,9 @@ namespace FlowerClient.View
                         // Создаем и показываем форму подсказки
                         tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Count, product.Price, product.ImagesByte);
                         tooltipForm.StartPosition = FormStartPosition.Manual;
-                        // Устанавливаем положение формы рядом со значком (слева от него)
+                        // Устанавливаем положение формы рядом со значком (справа от него)
                         Point iconLocation = iconPictureBox.PointToScreen(Point.Empty);
-                        tooltipForm.Location = new Point(iconLocation.X - tooltipForm.Width, iconLocation.Y);
+                        tooltipForm.Location = new Point(iconLocation.X + iconPictureBox.Width, iconLocation.Y);
                         tooltipForm.Show();
 
                         // Запускаем таймер

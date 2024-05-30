@@ -102,14 +102,16 @@
     <Compile Include="Additions\TokenParameters.cs" />
     <Compile Include="Additions\RefreshToken.cs" />
     <Compile Include="Additions\SaveHeaders.cs" />
+    <Compile Include="Model\Bonus.cs" />
     <Compile Include="Model\CartItem.cs" />
-    <Compile Include="Model\ShoppingCart.cs" />
     <Compile Include="Model\Header.cs" />
     <Compile Include="Model\Product.cs" />
     <Compile Include="PresenterLogin&amp;Registr\ILoginPresenter.cs" />
     <Compile Include="PresenterLogin&amp;Registr\LoginPresenter.cs" />
     <Compile Include="PresenterProducts\AdminPresenter.cs" />
+    <Compile Include="PresenterProducts\CartPresenter.cs" />
     <Compile Include="PresenterProducts\IAdminPresenter.cs" />
+    <Compile Include="PresenterProducts\ICartPresenter.cs" />
     <Compile Include="PresenterProducts\IMainProductsPresenter.cs" />
     <Compile Include="PresenterProducts\MainProductsPresenter.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -129,6 +131,7 @@
     <Compile Include="View\CartView.Designer.cs">
       <DependentUpon>CartView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\ICartView.cs" />
     <Compile Include="View\IProductTooltipForm.cs" />
     <Compile Include="View\MainProductsView.cs">
       <SubType>Form</SubType>

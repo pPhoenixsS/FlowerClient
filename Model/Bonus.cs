@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.Model
 {
-    public class CartItem
+    internal class Bonus
     {
-        public int productId { get; set; }
-        public int count { get; set; }
+        public int UserId { get; set; }
+        public int Bonuses { get; set; }
     }
 }

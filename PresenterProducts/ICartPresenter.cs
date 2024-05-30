@@ -7,11 +7,13 @@ using System.Threading.Tasks;
 
 namespace FlowerClient.PresenterProducts
 {
-    internal interface IMainProductsPresenter
+    internal interface ICartPresenter
     {
-        public Task<List<Product>> AllProducts();
         public string ResultAsync { get; set; }
-        public string GetRole();
+        public Task<List<CartItem>> BuyProductsWitnBonuses(int bonuses);
+        public Task<List<CartItem>> AllProductsInCart();
+        public Task<Bonus> BonusesForBuy();
+        public Task<Product> OneProduct(int id);
         public Task AddProductToCart(int id, int countBuyProduct);
     }
 }

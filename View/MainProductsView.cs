@@ -21,7 +21,6 @@ namespace FlowerClient.View
     public partial class MainProductsView : Form, IMainProductsView
     {
         private readonly IMainProductsPresenter presenter;
-        LoginModel model;
 
         public MainProductsView()
         {
@@ -156,10 +155,25 @@ namespace FlowerClient.View
                 putToCart.Font = new Font("Monotype Corsiva", 14);
 
                 // Создать обработчик события для кнопки "В корзину"
-                putToCart.Click += (sender, e) =>
+                putToCart.Click += async (sender, e) =>
                 {
-                    int countBuyProduct = int.Parse(countBuy.Text);
-                    ShoppingCart.AddProductToCart(model.Email, product, countBuyProduct); // добавляем товар в корзину
+                    string countBuyProduct = countBuy.Text;
+
+                    if (ValidateTextBoxValue(countBuy, product.Count) == true)
+                    {
+                        await presenter.AddProductToCart(product.Id, int.Parse(countBuy.Text)); // добавляем товар в корзину
+
+                        if (presenter.ResultAsync == "ok")
+                        {
+                            MessageBox.Show("Продукт добавлен в корзину");
+                        }
+                        else
+                        {
+                            MessageBox.Show(presenter.ResultAsync);
+                        }
+                    }
+
+                    countBuy.Text = null;
                 };
 
                 OnePanel.Controls.Add(putToCart);
@@ -178,9 +192,9 @@ namespace FlowerClient.View
                         // Создаем и показываем форму подсказки
                         tooltipForm = new ProductTooltipForm(product.Name, product.Kind, product.Description, product.Count, product.Price, product.ImagesByte);
                         tooltipForm.StartPosition = FormStartPosition.Manual;
-                        // Устанавливаем положение формы рядом со значком (слева от него)
+                        // Устанавливаем положение формы рядом со значком (справа от него)
                         Point iconLocation = iconPictureBox.PointToScreen(Point.Empty);
-                        tooltipForm.Location = new Point(iconLocation.X - tooltipForm.Width, iconLocation.Y);
+                        tooltipForm.Location = new Point(iconLocation.X + iconPictureBox.Width, iconLocation.Y);
                         tooltipForm.Show();
 
                         // Запускаем таймер
@@ -230,6 +244,27 @@ namespace FlowerClient.View
             }
 
             flowLayoutPanelProduct.PerformLayout(); // Обновить макет для обновления полос прокрутки
+        }
+
+        // Метод для проверки значения текстбокса
+        public bool ValidateTextBoxValue(TextBox textBox, int maxValue)
+        {
+            if (int.TryParse(textBox.Text, out int value))
+            {
+                if (value > maxValue)
+                {
+                    textBox.Text = maxValue.ToString();
+                    MessageBox.Show($"Значение не должно превышать {maxValue}. Установлено максимальное значение.");
+                }
+
+                return true;
+            }
+            else
+            {
+                MessageBox.Show("Введите корректное целое число.");
+            }
+
+            return false;
         }
     }
 }

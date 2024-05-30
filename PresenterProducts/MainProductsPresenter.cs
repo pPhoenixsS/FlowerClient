@@ -74,7 +74,12 @@ namespace FlowerClient.PresenterProducts
             return null;
         }
 
-        public async Task OneProduct(int id) // один продукт
+        public string GetRole()
+        {
+            return TokenParameters.GetRoleFromToken();
+        }
+
+        public async Task AddProductToCart(int id, int countBuyProduct) // добавление продукта в корзину
         {
             // Проверить и обновить токен при необходимости
             await RefreshToken.CheckAndRefreshTokenIfNeeded();
@@ -83,7 +88,16 @@ namespace FlowerClient.PresenterProducts
 
             httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
 
-            var response = await httpClient.GetAsync("http://localhost:5001/product/" + id.ToString());
+            var body = new
+            {
+                productId = id,
+                count = countBuyProduct,
+            };
+
+            string jsonBody = JsonConvert.SerializeObject(body);
+            var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
+
+            var response = await httpClient.PostAsync("http://localhost:5002/cart", content);
 
             int statusCode = (int)response.StatusCode;
 
@@ -93,19 +107,15 @@ namespace FlowerClient.PresenterProducts
                     // Получение данных из ответа
                     var data = await response.Content.ReadAsStringAsync();
 
-                    // Десериализация JSON данных в объект Product
-                    var product = JsonConvert.DeserializeObject<Product>(data);
+                    // Десериализация JSON данных в объект CartItem
+                    var cartItems = JsonConvert.DeserializeObject<List<CartItem>>(data);
+
                     result = "ok";
                     break;
                 default:
                     result = "ошибка";
                     break;
             }
-        }
-
-        public string GetRole()
-        {
-            return TokenParameters.GetRoleFromToken();
         }
     }
 }

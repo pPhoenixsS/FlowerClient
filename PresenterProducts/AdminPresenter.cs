@@ -18,13 +18,11 @@ namespace FlowerClient.PresenterProducts
     internal class AdminPresenter : IAdminPresenter
     {
         IAdminView view;
-        Product model;
         string result;
 
         public AdminPresenter(IAdminView view)
         {
             this.view = view;
-            this.model = new Product();
         }
 
         public string ResultAsync { get => result; set => value = result; }
@@ -33,13 +31,6 @@ namespace FlowerClient.PresenterProducts
         {
             // Проверить и обновить токен при необходимости
             await RefreshToken.CheckAndRefreshTokenIfNeeded();
-
-            model.Name = Name;
-            model.Kind = Kind;
-            model.Description = Description;
-            model.Price = Price;
-            model.Count = Count;
-            model.Images = Images;
 
             using HttpClient httpClient = new HttpClient();
 
@@ -158,36 +149,6 @@ namespace FlowerClient.PresenterProducts
             }
 
             return null;
-        }
-
-        public async Task OneProduct(int id) // один продукт
-        {
-            // Проверить и обновить токен при необходимости
-            await RefreshToken.CheckAndRefreshTokenIfNeeded();
-
-            using HttpClient httpClient = new HttpClient();
-
-            httpClient.DefaultRequestHeaders.Add("Authorization", "Bearer " + Header.headers.AccessToken);
-
-            var response = await httpClient.GetAsync("http://localhost:5001/product/" + id.ToString());
-
-            int statusCode = (int)response.StatusCode;
-
-            switch (statusCode)
-            {
-                case 200:
-                    // Получение данных из ответа
-                    var data = await response.Content.ReadAsStringAsync();
-
-                    // Десериализация JSON данных в объект Product
-                    var product = JsonConvert.DeserializeObject<Product>(data);
-
-                    result = "ok";
-                    break;
-                default:
-                    result = "ошибка";
-                    break;
-            }
         }
     }
 }

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace FlowerClient.View
 {
-    internal interface IMainProductsView
+    internal interface ICartView
     {
-        public void DisplayProducts(List<Product> products);
         public void LoadProducts();
-        public bool ValidateTextBoxValue(TextBox textBox, int maxValue);
+        public void DisplayProducts(List<CartItem> productsBuy);
+        public void BonusesCount();
+        public void SumPrice(List<CartItem> productsBuy);
     }
 }

@@ -217,7 +217,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(595, 62);
+            this.label8.Location = new System.Drawing.Point(590, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 37);
             this.label8.TabIndex = 18;
@@ -239,9 +239,9 @@
             // 
             this.flowLayoutPanelProduct.AutoScroll = true;
             this.flowLayoutPanelProduct.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(602, 102);
+            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(597, 102);
             this.flowLayoutPanelProduct.Name = "flowLayoutPanelProduct";
-            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(868, 715);
+            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(873, 715);
             this.flowLayoutPanelProduct.TabIndex = 22;
             // 
             // AddProduct
