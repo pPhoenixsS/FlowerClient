@@ -11,5 +11,6 @@ namespace FlowerClient.View
     {
         public void DisplayProducts(List<Product> products);
         public void LoadProducts();
+        public void DisplayCurrentPhoto();
     }
 }

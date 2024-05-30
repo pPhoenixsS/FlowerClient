@@ -73,13 +73,13 @@ namespace FlowerClient.View
                 // Создать панель для каждого продукта
                 FlowLayoutPanel OnePanel = new FlowLayoutPanel();
                 OnePanel.FlowDirection = FlowDirection.TopDown;
-                OnePanel.AutoSize = true;
+                OnePanel.Size = new Size(206, 368);
                 OnePanel.BackColor = Color.Pink;
                 OnePanel.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
                 // Создание значка
                 PictureBox iconPictureBox = new PictureBox();
-                iconPictureBox.Image = Properties.Resources.details1; // Замените на ваш значок
+                iconPictureBox.Image = Properties.Resources.details1; 
                 iconPictureBox.Size = new Size(30, 30); // Устанавливаем размер PictureBox
                 iconPictureBox.SizeMode = PictureBoxSizeMode.StretchImage; // Устанавливаем режим отображения
                 iconPictureBox.Cursor = Cursors.Hand; // Устанавливаем курсор руки при наведении
@@ -146,6 +146,8 @@ namespace FlowerClient.View
 
                 // Объявление переменной для хранения формы подсказки
                 ProductTooltipForm tooltipForm = null;
+                // Таймер для периодической проверки положения курсора
+                Timer tooltipTimer = new Timer { Interval = 100 }; // Проверяем каждые 100 мс
 
                 // Обработчик события MouseEnter для значка
                 iconPictureBox.MouseEnter += (sender, e) =>
@@ -160,21 +162,49 @@ namespace FlowerClient.View
                         Point iconLocation = iconPictureBox.PointToScreen(Point.Empty);
                         tooltipForm.Location = new Point(iconLocation.X - tooltipForm.Width, iconLocation.Y);
                         tooltipForm.Show();
+
+                        // Запускаем таймер
+                        tooltipTimer.Tick += TooltipTimer_Tick;
+                        tooltipTimer.Start();
                     }
                 };
 
                 // Обработчик события MouseLeave для значка
                 iconPictureBox.MouseLeave += (sender, e) =>
                 {
-                    // Проверяем, что форма подсказки отображается
+                    CheckAndCloseTooltipForm();
+                };
+
+                // Метод для периодической проверки положения курсора
+                void TooltipTimer_Tick(object sender, EventArgs e)
+                {
+                    CheckAndCloseTooltipForm();
+                }
+
+                // Метод для проверки местоположения курсора и закрытия формы подсказки
+                void CheckAndCloseTooltipForm()
+                {
+                    if (tooltipForm != null &&
+                        !tooltipForm.ClientRectangle.Contains(tooltipForm.PointToClient(Cursor.Position)) &&
+                        !iconPictureBox.ClientRectangle.Contains(iconPictureBox.PointToClient(Cursor.Position)))
+                    {
+                        CloseTooltipForm();
+                    }
+                }
+
+                // Метод для закрытия формы подсказки
+                void CloseTooltipForm()
+                {
                     if (tooltipForm != null)
                     {
-                        // Закрываем и освобождаем ресурсы формы подсказки
+                        tooltipTimer.Stop();
+                        tooltipTimer.Tick -= TooltipTimer_Tick;
+
                         tooltipForm.Close();
                         tooltipForm.Dispose();
                         tooltipForm = null;
                     }
-                };
+                }
 
                 flowLayoutPanelProduct.Controls.Add(OnePanel);
             }
@@ -216,7 +246,7 @@ namespace FlowerClient.View
             }
         }
 
-        private void DisplayCurrentPhoto()
+        public void DisplayCurrentPhoto()
         {
             if (currentPhotoIndex >= 0 && currentPhotoIndex < photoPaths.Count)
             {

@@ -14,7 +14,7 @@ using Label = System.Windows.Forms.Label;
 
 namespace FlowerClient.View
 {
-    public partial class ProductTooltipForm : Form
+    public partial class ProductTooltipForm : Form, IProductTooltipForm
     {
         private PictureBox pictureBox;
         private Timer timer;
@@ -27,8 +27,9 @@ namespace FlowerClient.View
             FlowLayoutPanel Panelka = new FlowLayoutPanel();
             Panelka.FlowDirection = FlowDirection.TopDown;
             Panelka.BackColor = Color.LightPink;
-            Panelka.WrapContents = false;
-            Panelka.Size = new Size(300, 300);
+            Panelka.Size = new Size(350, 400);
+            Panelka.AutoScroll = true;
+            Panelka.WrapContents = false; // Переносить элементы на новую строку при достижении края контейнера
             Panelka.AutoSizeMode = AutoSizeMode.GrowAndShrink;
 
             // Инициализация PictureBox для отображения картинок
@@ -86,7 +87,7 @@ namespace FlowerClient.View
                 Height += pictureBox.Height; // Увеличиваем высоту формы на высоту изображения
             }
 
-            currentIndex = 1; // Начинаем с первого изображения после основного
+            currentIndex = 0; // Начинаем с первого изображения после основного
 
             // Инициализация таймера для автоматического переключения изображений
             timer = new Timer();
@@ -100,7 +101,7 @@ namespace FlowerClient.View
             // Настройка формы
             this.Text = "Подробная информация";
             this.FormBorderStyle = FormBorderStyle.None;
-            this.Size = new Size(300,400);
+            this.Size = new Size(350,400);
         }
 
         private void Timer_Tick(object sender, EventArgs e)
@@ -108,7 +109,7 @@ namespace FlowerClient.View
             ShowNextImage();
         }
 
-        private void ShowNextImage()
+        public void ShowNextImage()
         {
             if (imageBytes != null && imageBytes.Count > 0)
             {

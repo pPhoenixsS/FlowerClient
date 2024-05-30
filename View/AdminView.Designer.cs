@@ -69,7 +69,7 @@
             this.pictureBox.BackColor = System.Drawing.Color.Pink;
             this.pictureBox.Location = new System.Drawing.Point(12, 73);
             this.pictureBox.Name = "pictureBox";
-            this.pictureBox.Size = new System.Drawing.Size(400, 250);
+            this.pictureBox.Size = new System.Drawing.Size(496, 250);
             this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox.TabIndex = 2;
             this.pictureBox.TabStop = false;
@@ -80,7 +80,7 @@
             this.AddPicture.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.AddPicture.Location = new System.Drawing.Point(12, 372);
             this.AddPicture.Name = "AddPicture";
-            this.AddPicture.Size = new System.Drawing.Size(400, 39);
+            this.AddPicture.Size = new System.Drawing.Size(496, 39);
             this.AddPicture.TabIndex = 3;
             this.AddPicture.Text = "Добавить фотографию";
             this.AddPicture.UseVisualStyleBackColor = false;
@@ -102,7 +102,7 @@
             // 
             this.Forward.BackColor = System.Drawing.Color.LightPink;
             this.Forward.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
-            this.Forward.Location = new System.Drawing.Point(314, 327);
+            this.Forward.Location = new System.Drawing.Point(410, 327);
             this.Forward.Name = "Forward";
             this.Forward.Size = new System.Drawing.Size(98, 39);
             this.Forward.TabIndex = 5;
@@ -116,7 +116,7 @@
             this.DeletePicture.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.DeletePicture.Location = new System.Drawing.Point(12, 417);
             this.DeletePicture.Name = "DeletePicture";
-            this.DeletePicture.Size = new System.Drawing.Size(400, 39);
+            this.DeletePicture.Size = new System.Drawing.Size(496, 39);
             this.DeletePicture.TabIndex = 6;
             this.DeletePicture.Text = "Удалить фотографию";
             this.DeletePicture.UseVisualStyleBackColor = false;
@@ -127,7 +127,7 @@
             this.NameProduct.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.NameProduct.Location = new System.Drawing.Point(203, 472);
             this.NameProduct.Name = "NameProduct";
-            this.NameProduct.Size = new System.Drawing.Size(209, 38);
+            this.NameProduct.Size = new System.Drawing.Size(305, 38);
             this.NameProduct.TabIndex = 7;
             // 
             // label3
@@ -155,14 +155,14 @@
             this.Kind.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.Kind.Location = new System.Drawing.Point(203, 516);
             this.Kind.Name = "Kind";
-            this.Kind.Size = new System.Drawing.Size(209, 38);
+            this.Kind.Size = new System.Drawing.Size(305, 38);
             this.Kind.TabIndex = 9;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(147, 654);
+            this.label5.Location = new System.Drawing.Point(198, 654);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(116, 34);
             this.label5.TabIndex = 11;
@@ -173,7 +173,7 @@
             this.Description.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.Description.Location = new System.Drawing.Point(12, 691);
             this.Description.Name = "Description";
-            this.Description.Size = new System.Drawing.Size(400, 81);
+            this.Description.Size = new System.Drawing.Size(496, 81);
             this.Description.TabIndex = 12;
             this.Description.Text = "";
             // 
@@ -192,7 +192,7 @@
             this.Price.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.Price.Location = new System.Drawing.Point(204, 560);
             this.Price.Name = "Price";
-            this.Price.Size = new System.Drawing.Size(209, 38);
+            this.Price.Size = new System.Drawing.Size(305, 38);
             this.Price.TabIndex = 13;
             // 
             // label7
@@ -210,14 +210,14 @@
             this.Count.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.Count.Location = new System.Drawing.Point(203, 604);
             this.Count.Name = "Count";
-            this.Count.Size = new System.Drawing.Size(209, 38);
+            this.Count.Size = new System.Drawing.Size(305, 38);
             this.Count.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Monotype Corsiva", 18F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(418, 62);
+            this.label8.Location = new System.Drawing.Point(595, 62);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(158, 37);
             this.label8.TabIndex = 18;
@@ -239,9 +239,9 @@
             // 
             this.flowLayoutPanelProduct.AutoScroll = true;
             this.flowLayoutPanelProduct.BackColor = System.Drawing.Color.White;
-            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(425, 102);
+            this.flowLayoutPanelProduct.Location = new System.Drawing.Point(602, 102);
             this.flowLayoutPanelProduct.Name = "flowLayoutPanelProduct";
-            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(1045, 715);
+            this.flowLayoutPanelProduct.Size = new System.Drawing.Size(868, 715);
             this.flowLayoutPanelProduct.TabIndex = 22;
             // 
             // AddProduct
@@ -250,7 +250,7 @@
             this.AddProduct.Font = new System.Drawing.Font("Monotype Corsiva", 16.2F, System.Drawing.FontStyle.Italic);
             this.AddProduct.Location = new System.Drawing.Point(12, 778);
             this.AddProduct.Name = "AddProduct";
-            this.AddProduct.Size = new System.Drawing.Size(400, 39);
+            this.AddProduct.Size = new System.Drawing.Size(496, 39);
             this.AddProduct.TabIndex = 23;
             this.AddProduct.Text = "Добавить товар";
             this.AddProduct.UseVisualStyleBackColor = false;

@@ -129,6 +129,7 @@
     <Compile Include="View\CartView.Designer.cs">
       <DependentUpon>CartView.cs</DependentUpon>
     </Compile>
+    <Compile Include="View\IProductTooltipForm.cs" />
     <Compile Include="View\MainProductsView.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,11 +204,41 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\HeadersForSafety.txt" />
-    <None Include="Image\ImagesForView\details.png" />
-    <None Include="Image\ImagesForView\add-user.png" />
-    <None Include="ImageForBack\free-icon-florist-5875590.png" />
-    <None Include="ImagesForView\buy.png" />
-    <None Include="ImagesForView\details.png" />
+    <Content Include="Image\flowers\free-icon-algerian-iris-15056918.png" />
+    <Content Include="Image\flowers\free-icon-alyssum-15056841.png" />
+    <Content Include="Image\flowers\free-icon-bouquet-10269182.png" />
+    <Content Include="Image\flowers\free-icon-bouquet-2438198.png" />
+    <Content Include="Image\flowers\free-icon-camellia-15056709.png" />
+    <Content Include="Image\flowers\free-icon-camellia-15056889.png" />
+    <Content Include="Image\flowers\free-icon-cineraria-15056851.png" />
+    <Content Include="Image\flowers\free-icon-daffodil-15056866.png" />
+    <Content Include="Image\flowers\free-icon-daisies-8611550.png" />
+    <Content Include="Image\flowers\free-icon-daisy-flower-15048903.png" />
+    <Content Include="Image\flowers\free-icon-flower-bouquet-2366138.png" />
+    <Content Include="Image\flowers\free-icon-flower-bouquet-2552892.png" />
+    <Content Include="Image\flowers\free-icon-flower-bouquet-6644645.png" />
+    <Content Include="Image\flowers\free-icon-flower-bouquet-8389995.png" />
+    <Content Include="Image\flowers\free-icon-flowers-7348543.png" />
+    <Content Include="Image\flowers\free-icon-iris-4139395.png" />
+    <Content Include="Image\flowers\free-icon-marigold-15056835.png" />
+    <Content Include="Image\flowers\free-icon-pansy-15056844.png" />
+    <Content Include="Image\flowers\free-icon-primrose-15056856.png" />
+    <Content Include="Image\flowers\free-icon-roses-15566425.png" />
+    <Content Include="Image\flowers\free-icon-siberian-squill-15056838.png" />
+    <Content Include="Image\flowers\free-icon-viola-15056905.png" />
+    <Content Include="Image\icons\add-user.ico" />
+    <Content Include="Image\icons\enter.ico" />
+    <Content Include="Image\icons\shopping-trolley.ico" />
+    <Content Include="Image\icons\software-engineer.ico" />
+    <Content Include="Image\icons\user.ico" />
+    <Content Include="Image\ImagesForView\add-user.png" />
+    <Content Include="Image\ImagesForView\buy.png" />
+    <Content Include="Image\ImagesForView\details.png" />
+    <Content Include="Image\ImagesForView\enter.png" />
+    <Content Include="Image\ImagesForView\flower-shop.png" />
+    <Content Include="Image\ImagesForView\shopping-trolley.png" />
+    <Content Include="Image\ImagesForView\software-engineer.png" />
+    <Content Include="Image\ImagesForView\user.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
