@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using Button = System.Windows.Forms.Button;
 using TextBox = System.Windows.Forms.TextBox;
@@ -314,14 +315,40 @@ namespace FlowerClient.View
                 {
                     if (int.TryParse(UseBonuses.Text, out int value) && value >= 0)
                     {
-                        if (value > bonus.Bonuses)
+                        if (value > bonus.Bonuses) // если введенное значение бонусов больше существующего
                         {
                             UseBonuses.Text = bonus.Bonuses.ToString();
-                            MessageBox.Show($"Значение не должно превышать {bonus.Bonuses}. Установлено максимальное значение.");
+
+                            if (double.Parse(UseBonuses.Text) > double.Parse(Sum.Text)) // если используемые бонусы превышают сумму покупки
+                            {
+                                UseBonuses.Text = ((int)Math.Floor(double.Parse(Sum.Text))).ToString(); // округляем значение цены в меньшую сторону до ближайшего целого числа
+                                MessageBox.Show($"Количество бонусов не может превышать сумму покупки. Установлено максимально возможное значение.");
+                            }
+                            else
+                            {
+                                MessageBox.Show($"Количество бонусов не должно превышать {bonus.Bonuses}. Установлено максимальное значение.");
+                            }
                         }
 
+                        if (double.Parse(UseBonuses.Text) > double.Parse(Sum.Text)) // если используемые бонусы превышают сумму покупки
+                        {
+                            UseBonuses.Text = ((int)Math.Floor(double.Parse(Sum.Text))).ToString(); // округляем значение цены в меньшую сторону до ближайшего целого числа
+                            MessageBox.Show($"Количество бонусов не может превышать сумму покупки. Установлено максимально возможное значение.");
+                        }
+
+                        if (int.Parse(UseBonuses.Text) != 0)
+                        {
+                            // Обновить сумму к покупке в интерфейсе
+                            Sum.Text = (double.Parse(Sum.Text) - double.Parse(UseBonuses.Text)).ToString();
+
+                            MessageBox.Show("Сумма к покупке обновлена!");
+                        }
+
+                        Thread.Sleep(3000); // Пауза на 3 секунды (3000 миллисекунд)
+
                         await presenter.BuyProductsWitnBonuses(int.Parse(UseBonuses.Text));
-                        MessageBox.Show($"Вы купили все товары, использовав {UseBonuses.Text} бонусов. Спасибо за покупку! Ждем Вас снова!");
+
+                        MessageBox.Show($"Вы купили все товары, использовав {UseBonuses.Text} бонусов и заплатив {Sum.Text} рублей. Спасибо за покупку! Ждем Вас снова!");
                         LoadProducts();
                         Bonuses.Text = null;
 
@@ -331,6 +358,8 @@ namespace FlowerClient.View
                     {
                         MessageBox.Show("Введите корректное целое неотрицательное значение бонусов для использования");
                     }
+
+                    UseBonuses.Text = null;
                 }
                 else
                 {
