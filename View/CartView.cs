@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Button = System.Windows.Forms.Button;
 using TextBox = System.Windows.Forms.TextBox;
@@ -14,7 +15,7 @@ namespace FlowerClient.View
 {
     public partial class CartView : Form, ICartView
     {
-        private readonly ICartPresenter presenter;
+        public ICartPresenter presenter;
 
         public CartView()
         {
@@ -27,6 +28,10 @@ namespace FlowerClient.View
             presenter = new CartPresenter(this);
 
             LoadProducts();
+        }
+        public void InjectPresenter(ICartPresenter presenter) // для тестов
+        {
+            this.presenter = presenter;
         }
 
         private void GoMain_Click(object sender, EventArgs e) // в меню
@@ -291,7 +296,7 @@ namespace FlowerClient.View
             flowLayoutPanelProduct.PerformLayout(); // Обновить макет для обновления полос прокрутки
         }
 
-        public async void BonusesCount() // указываем количество имеющихся бонусов
+        public async Task BonusesCount() // указываем количество имеющихся бонусов
         {
             Bonus bonus = await presenter.BonusesForBuy();
 
@@ -372,7 +377,7 @@ namespace FlowerClient.View
             }
         }
 
-        public async void SumPrice(List<CartItem> productsBuy) // записываем сумму в текстбокс
+        public async Task SumPrice(List<CartItem> productsBuy) // записываем сумму в текстбокс
         {
             double Summa = 0;
 
@@ -386,7 +391,7 @@ namespace FlowerClient.View
             Sum.Text = Summa.ToString();
         }
 
-        public async void DeleteNullProducts() // удаление продуктов, которых нет в наличии
+        public async Task DeleteNullProducts() // удаление продуктов, которых нет в наличии
         {
             List<Product> products = await presenter.AllProducts();
 

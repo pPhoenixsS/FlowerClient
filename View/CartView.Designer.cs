@@ -200,11 +200,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanelProduct;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label Bonuses;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox UseBonuses;
         private System.Windows.Forms.Button Buy;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox Sum;
+        public System.Windows.Forms.Label Bonuses;
+        public System.Windows.Forms.TextBox Sum;
     }
 }
