@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="FlowerClient.CheckingInput">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgBAAAAAAAA=</HashCode>
+      <FileName>Additions\CheckingInput.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.Additions.RefreshToken">
+    <Position X="4.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEIAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Additions\RefreshToken.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.Additions.SaveHeaders">
+    <Position X="8" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Additions\SaveHeaders.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TokenParameters">
+    <Position X="6.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAEAAAAAAAAA=</HashCode>
+      <FileName>Additions\TokenParameters.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.Model.Bonus">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Bonus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.Model.CartItem">
+    <Position X="9.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\CartItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.model.Header">
+    <Position X="6.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAIAAAAEAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Header.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.model.LoginModel">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Model\LoginModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.Model.Product">
+    <Position X="8" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAQBgAAEAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Product.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.model.RegisterModel">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
+      <FileName>Model\RegisterModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FlowerClient.presenter.LoginPresenter">
+    <Position X="2.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAABAAAAAAAAAAAAAAAAQAQAAAIAAA=</HashCode>
+      <FileName>PresenterLogin&amp;Registr\LoginPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.presenter.RegisterPresenter">
+    <Position X="4.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAABAAAAAAAAAABAAAAAQAAAAAIAAA=</HashCode>
+      <FileName>PresenterLogin&amp;Registr\RegisterPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.PresenterProducts.AdminPresenter">
+    <Position X="6.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACACAAABAAAQAgAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>PresenterProducts\AdminPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.PresenterProducts.CartPresenter">
+    <Position X="9.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACACAAEBAAAAAgEAAAAQAAAAQAAACAAAAA=</HashCode>
+      <FileName>PresenterProducts\CartPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.PresenterProducts.MainProductsPresenter">
+    <Position X="8" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAACACAAABAAAAAAAAAAAQAAAAQAAAAAAAAA=</HashCode>
+      <FileName>PresenterProducts\MainProductsPresenter.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.View.AdminView">
+    <Position X="6.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAEASBgIBAAUACIQAaGACSwQAAIACEAAABAAAI=</HashCode>
+      <FileName>View\AdminView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.View.CartView">
+    <Position X="9.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAMABAAAAOAAABAAEACIAACCAAEwwAAAAAAAAABAAAQ=</HashCode>
+      <FileName>View\CartView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.view.LoginView">
+    <Position X="2.75" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAQAACAABBAAAACIAAACAAAgEAAAAQAAAABAAAI=</HashCode>
+      <FileName>View\LoginView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.View.MainProductsView">
+    <Position X="8" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIEAAACAAABAAEACIAQCCAgAgAAABAAAAEABAIAA=</HashCode>
+      <FileName>View\MainProductsView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.View.ProductTooltipForm">
+    <Position X="11.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgQAAAAAACAEAADAAACAAAACACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\ProductTooltipForm.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.RegisterView">
+    <Position X="4.5" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAQAACAABBAAAACIAAACAAAgEAAAAQAAAABAAAI=</HashCode>
+      <FileName>View\RegisterView.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="FlowerClient.Program">
+    <Position X="13.25" Y="12.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="FlowerClient.presenter.ILoginPresenter">
+    <Position X="2.75" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>PresenterLogin&amp;Registr\ILoginPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.presenter.IRegisterPresenter">
+    <Position X="4.5" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PresenterLogin&amp;Registr\IRegisterPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.PresenterProducts.IAdminPresenter">
+    <Position X="6.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACACAAAAAAAQAgAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PresenterProducts\IAdminPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.PresenterProducts.ICartPresenter">
+    <Position X="9.75" Y="9.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAACACAAEAAAAAAgEAAAAQAAAAAAAACAAAAA=</HashCode>
+      <FileName>PresenterProducts\ICartPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.PresenterProducts.IMainProductsPresenter">
+    <Position X="8" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAAACACAAAAAAAAAAAAAAAQAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PresenterProducts\IMainProductsPresenter.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.View.IAdminView">
+    <Position X="6.25" Y="20.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAIAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>View\IAdminView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.view.ILoginView">
+    <Position X="2.75" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\ILoginView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.View.ICartView">
+    <Position X="9.75" Y="18.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAAAEAAIAAAAAAEAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\ICartView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.View.IMainProductsView">
+    <Position X="8" Y="17.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAEAAIAAAAAAAAAAABAAAAAAAAAAA=</HashCode>
+      <FileName>View\IMainProductsView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.View.IProductTooltipForm">
+    <Position X="11.5" Y="15.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\IProductTooltipForm.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="FlowerClient.view.IRegisterView">
+    <Position X="4.5" Y="16.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>View\IRegisterView.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

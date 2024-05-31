@@ -191,6 +191,7 @@
       <DependentUpon>RegisterView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="app.manifest" />
+    <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
