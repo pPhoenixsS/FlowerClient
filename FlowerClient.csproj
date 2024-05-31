@@ -166,7 +166,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="UnitTest1.cs" />
     <Compile Include="View\AdminView.cs">
       <SubType>Form</SubType>
     </Compile>
