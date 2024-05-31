@@ -1,23 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Net;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using FlowerClient.Model;
 using FlowerClient.PresenterProducts;
-using FlowerClient.view;
-using static System.Net.Mime.MediaTypeNames;
 using Image = System.Drawing.Image;
 using Label = System.Windows.Forms.Label;
 using System.IO;
-using Microsoft.IdentityModel.Tokens;
 
 namespace FlowerClient.View
 {
@@ -51,7 +40,7 @@ namespace FlowerClient.View
             main.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
         }
 
-        public async void LoadProducts()
+        public async void LoadProducts() // получаем товары
         {
             List<Product> products = await presenter.AllProducts();
 
@@ -61,7 +50,7 @@ namespace FlowerClient.View
             DisplayProducts(products);
         }
 
-        public void DisplayProducts(List<Product> products)
+        public void DisplayProducts(List<Product> products) // отображение всех товаров
         {
             flowLayoutPanelProduct.Controls.Clear(); // Очистить существующие элементы управления
             flowLayoutPanelProduct.BackColor = Color.Transparent; // Установка прозрачного цвета фона
@@ -246,7 +235,7 @@ namespace FlowerClient.View
             }
         }
 
-        public void DisplayCurrentPhoto()
+        public void DisplayCurrentPhoto() // отображение фото
         {
             if (currentPhotoIndex >= 0 && currentPhotoIndex < photoPaths.Count)
             {
@@ -262,7 +251,7 @@ namespace FlowerClient.View
             }
         }
 
-        private void Next_Click(object sender, EventArgs e)
+        private void Next_Click(object sender, EventArgs e) // пролистывание фото вперед
         {
             if (photoPaths.Count > 0)
             {
@@ -271,7 +260,7 @@ namespace FlowerClient.View
             }
         }
 
-        private void Back_Click(object sender, EventArgs e)
+        private void Back_Click(object sender, EventArgs e) // пролистывание фото назад
         {
             if (photoPaths.Count > 0)
             {
@@ -290,8 +279,8 @@ namespace FlowerClient.View
                 !string.IsNullOrEmpty(Count.Text) &&
                 photoPaths != null)
             {
-                // Проверка, что Цена является числом и Количество является целым числом
-                if (double.TryParse(Price.Text, out double result1) && int.TryParse(Count.Text, out int result2))
+                // Проверка, что Цена является числом и Количество является целым числом (неотрицательные)
+                if (double.TryParse(Price.Text, out double result1) && int.TryParse(Count.Text, out int result2) && result1 >= 0 && result2 >= 0)
                 {
                     // Добавление продукта
                     await presenter.AddProduct(NameProduct.Text, Kind.Text, Description.Text, result1, result2, photoPaths);
@@ -318,7 +307,7 @@ namespace FlowerClient.View
                 }
                 else
                 {
-                    MessageBox.Show("Пожалуйста, заполните поля Цена и Количество корректными числовыми значениями.");
+                    MessageBox.Show("Пожалуйста, заполните поля Цена и Количество корректными числовыми неотрицательными значениями.");
                 }
             }
             else

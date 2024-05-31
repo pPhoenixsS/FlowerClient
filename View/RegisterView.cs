@@ -1,16 +1,6 @@
-﻿using FlowerClient.model;
-using FlowerClient.presenter;
+﻿using FlowerClient.presenter;
 using FlowerClient.view;
-using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Header = FlowerClient.model.Header;
 
@@ -44,7 +34,7 @@ namespace FlowerClient
             }
         }
 
-        private async void ButtonRegister_Click(object sender, EventArgs e)
+        private async void ButtonRegister_Click(object sender, EventArgs e) // регистрация
         {
             if (CheckingInput.IsValidEmail(textBoxEmail.Text) && CheckingInput.IsStrongPassword(textBoxPassword.Text))
             {
@@ -83,7 +73,7 @@ namespace FlowerClient
             }
         }
 
-        private void ButtonLogin_Click(object sender, EventArgs e)
+        private void ButtonLogin_Click(object sender, EventArgs e) // переход ко входу
         {
             LoginView auth = new LoginView();
             auth.Show(); // показываем форму

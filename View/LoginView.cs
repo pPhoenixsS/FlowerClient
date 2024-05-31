@@ -1,16 +1,6 @@
-﻿using FlowerClient.model;
-using FlowerClient.presenter;
+﻿using FlowerClient.presenter;
 using FlowerClient.View;
-using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Header = FlowerClient.model.Header;
 
@@ -44,7 +34,7 @@ namespace FlowerClient.view
             }
         }
 
-        private async void ButtonLogin_Click(object sender, EventArgs e)
+        private async void ButtonLogin_Click(object sender, EventArgs e) // залогиниться
         {
             await presenter.Login(textBoxEmail.Text, textBoxPassword.Text);
             var _headers = Header.headers;
@@ -64,7 +54,7 @@ namespace FlowerClient.view
             }
         }
 
-        private void ButtonRegister_Click(object sender, EventArgs e)
+        private void ButtonRegister_Click(object sender, EventArgs e) // переход к регистрации
         {
             RegisterView register = new RegisterView();
             register.Show();

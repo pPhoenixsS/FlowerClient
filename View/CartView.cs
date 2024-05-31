@@ -28,7 +28,7 @@ namespace FlowerClient.View
             LoadProducts();
         }
 
-        private void GoMain_Click(object sender, EventArgs e)
+        private void GoMain_Click(object sender, EventArgs e) // в меню
         {
             MainProductsView main = new MainProductsView(); // создаем новую форму
             main.Show(); // показываем форму
@@ -36,7 +36,7 @@ namespace FlowerClient.View
             main.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
         }
 
-        public async void LoadProducts()
+        public async void LoadProducts() // получение товаров, бонусов, суммы корзины
         {
             List<CartItem> productsBuy = await presenter.AllProductsInCart();
 
@@ -53,7 +53,7 @@ namespace FlowerClient.View
             BonusesCount();
         }
 
-        public async void DisplayProducts(List<CartItem> productsBuy)
+        public async void DisplayProducts(List<CartItem> productsBuy) // отображение товаров
         {
             flowLayoutPanelProduct.Controls.Clear(); // Очистить существующие элементы управления
             flowLayoutPanelProduct.BackColor = Color.Transparent; // Установка прозрачного цвета фона
@@ -158,7 +158,7 @@ namespace FlowerClient.View
                     // Иначе сохраняем
                     else
                     {
-                        if (int.TryParse(countBuy.Text, out int value))
+                        if (int.TryParse(countBuy.Text, out int value) && value >= 0)
                         {
                             if (value > product.Count)
                             {
@@ -180,7 +180,7 @@ namespace FlowerClient.View
                         }
                         else
                         {
-                            MessageBox.Show("Введено некорректное целое количество товара.");
+                            MessageBox.Show("Введено некорректное целое неотрицательное количество товара.");
 
                             countBuy.Text = productBuy.count.ToString();
                         }
@@ -304,15 +304,15 @@ namespace FlowerClient.View
             }
         }
 
-        private async void Buy_Click(object sender, EventArgs e)
+        private async void Buy_Click(object sender, EventArgs e) // покупка
         {
             if (Sum.Text != null && Sum.Text != "0")
             {
                 Bonus bonus = await presenter.BonusesForBuy();
 
-                if (!string.IsNullOrWhiteSpace(UseBonuses.Text) && int.Parse(UseBonuses.Text) >= 0)
+                if (!string.IsNullOrWhiteSpace(UseBonuses.Text))
                 {
-                    if (int.TryParse(UseBonuses.Text, out int value))
+                    if (int.TryParse(UseBonuses.Text, out int value) && value >= 0)
                     {
                         if (value > bonus.Bonuses)
                         {
@@ -324,15 +324,17 @@ namespace FlowerClient.View
                         MessageBox.Show($"Вы купили все товары, использовав {UseBonuses.Text} бонусов. Спасибо за покупку! Ждем Вас снова!");
                         LoadProducts();
                         Bonuses.Text = null;
+
+                        DeleteNullProducts();
                     }
                     else
                     {
-                        MessageBox.Show("Введите корректное целое значение бонусов для использования");
+                        MessageBox.Show("Введите корректное целое неотрицательное значение бонусов для использования");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Введите целое значение бонусов для использования");
+                    MessageBox.Show("Введите целое неотрицательное значение бонусов для использования");
                 }
             }
             else
@@ -341,7 +343,7 @@ namespace FlowerClient.View
             }
         }
 
-        public async void SumPrice(List<CartItem> productsBuy)
+        public async void SumPrice(List<CartItem> productsBuy) // записываем сумму в текстбокс
         {
             double Summa = 0;
 
@@ -353,6 +355,19 @@ namespace FlowerClient.View
             }
 
             Sum.Text = Summa.ToString();
+        }
+
+        public async void DeleteNullProducts() // удаление продуктов, которых нет в наличии
+        {
+            List<Product> products = await presenter.AllProducts();
+
+            foreach (var product in products)
+            {
+                if (product.Count == 0)
+                {
+                    await presenter.DeleteProduct(product.Id); // вызов запроса на удаление
+                }
+            }
         }
     }
 }

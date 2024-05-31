@@ -1,18 +1,10 @@
-﻿using FlowerClient.model;
-using FlowerClient.Model;
-using FlowerClient.presenter;
+﻿using FlowerClient.Model;
 using FlowerClient.PresenterProducts;
 using FlowerClient.view;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Label = System.Windows.Forms.Label;
 
@@ -60,7 +52,7 @@ namespace FlowerClient.View
             admin.FormClosed += (s, args) => this.Close(); // подписываемся на событие FormClosed новой формы, чтобы закрыть текущую форму
         }
 
-        public async void LoadProducts()
+        public async void LoadProducts() // получаем товары
         {
             List<Product> products = await presenter.AllProducts();
 
@@ -70,7 +62,7 @@ namespace FlowerClient.View
             DisplayProducts(products);
         }
 
-        public void DisplayProducts(List<Product> products)
+        public void DisplayProducts(List<Product> products) // отображение всех товаров
         {
             flowLayoutPanelProduct.Controls.Clear(); // Очистить существующие элементы управления
             flowLayoutPanelProduct.BackColor = Color.Transparent; // Установка прозрачного цвета фона
@@ -246,10 +238,9 @@ namespace FlowerClient.View
             flowLayoutPanelProduct.PerformLayout(); // Обновить макет для обновления полос прокрутки
         }
 
-        // Метод для проверки значения текстбокса
-        public bool ValidateTextBoxValue(TextBox textBox, int maxValue)
+        public bool ValidateTextBoxValue(TextBox textBox, int maxValue) // Метод для проверки значения текстбокса
         {
-            if (int.TryParse(textBox.Text, out int value))
+            if (int.TryParse(textBox.Text, out int value) && value >= 0)
             {
                 if (value > maxValue)
                 {
@@ -261,7 +252,7 @@ namespace FlowerClient.View
             }
             else
             {
-                MessageBox.Show("Введите корректное целое число.");
+                MessageBox.Show("Введите корректное целое неотрицательное число.");
             }
 
             return false;

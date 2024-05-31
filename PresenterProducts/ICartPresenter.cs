@@ -1,8 +1,5 @@
 ﻿using FlowerClient.Model;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FlowerClient.PresenterProducts
@@ -15,5 +12,7 @@ namespace FlowerClient.PresenterProducts
         public Task<Bonus> BonusesForBuy();
         public Task<Product> OneProduct(int id);
         public Task AddProductToCart(int id, int countBuyProduct);
+        public Task DeleteProduct(int id);
+        public Task<List<Product>> AllProducts();
     }
 }

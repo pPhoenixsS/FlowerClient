@@ -1,14 +1,7 @@
-﻿using FlowerClient.Model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Label = System.Windows.Forms.Label;
 
@@ -21,7 +14,7 @@ namespace FlowerClient.View
         private List<byte[]> imageBytes;
         private int currentIndex;
 
-        public ProductTooltipForm(string productName, string productKind, string productDescription, int productCount, double productPrice, List<byte[]> images)
+        public ProductTooltipForm(string productName, string productKind, string productDescription, int productCount, double productPrice, List<byte[]> images) // создаем форму и ее содержимое для одного товара
         {
             // Создать панель для каждого продукта
             FlowLayoutPanel Panelka = new FlowLayoutPanel();
@@ -109,7 +102,7 @@ namespace FlowerClient.View
             ShowNextImage();
         }
 
-        public void ShowNextImage()
+        public void ShowNextImage() // показываем следующую картинку
         {
             if (imageBytes != null && imageBytes.Count > 0)
             {

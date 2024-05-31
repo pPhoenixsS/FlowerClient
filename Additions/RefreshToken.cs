@@ -1,24 +1,13 @@
 ﻿using FlowerClient.model;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace FlowerClient.Additions
 {
     internal static class RefreshToken // обновление токена
     {
-        private static string result;
-
-        public static string ResultAsync
-        {
-            get => result;
-            private set => result = value;
-        }
-
         public static async Task<bool> Refresh() // обновить токен
         {
             using HttpClient httpClient = new HttpClient();
@@ -46,10 +35,8 @@ namespace FlowerClient.Additions
                     // Сохраняем заголовки
                     SaveHeaders.SaveHeaderFieldsToFile(Header.headers, "C:/Users/arish/Documents/GitHub/FlowerClient/Data/HeadersForSafety.txt");
 
-                    result = "ok";
                     return true;
                 default:
-                    result = "ошибка";
                     return false;
             }
         }

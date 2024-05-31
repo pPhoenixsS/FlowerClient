@@ -1,20 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Linq;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace FlowerClient
 {
     internal class CheckingInput // проверка пароля и емэйла
     {
-        public static bool IsStringInputValid(string input)
-        {
-            // Проверяем, что вводимые данные являются строкой
-            return input is string;
-        }
-
         public static bool IsValidEmail(string email)
         {
             // Шаблон регулярного выражения для проверки email адреса
